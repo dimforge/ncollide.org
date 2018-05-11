@@ -4,7 +4,7 @@
 <br/>
 <center>
 [![Travis.ci Status](https://travis-ci.org/sebcrozet/ncollide.svg?branch=master)](https://travis-ci.org/sebcrozet/ncollide)
-[![Crates.io Status](http://meritbadge.herokuapp.com/ncollide)](https://crates.io/crates/ncollide)
+[![Crates.io Status](http://meritbadge.herokuapp.com/ncollide3d)](https://crates.io/crates/ncollide3d)
 [![License (3-Clause BSD)](https://img.shields.io/badge/license-BSD%203--Clause-blue.svg?style=flat)](http://opensource.org/licenses/BSD-3-Clause)
 
 -----
