@@ -40,14 +40,14 @@ You can contribute to this website by completing, improving, and correcting
 it. Do not hesitate to correct even the smallest, insignificant detail
 (especially English mistakes, including typography). We love nitpicking!  This
 website is composed of a set of markdown files located on the
-[gh-pages](https://github.com/sebcrozet/ncollide/tree/gh-pages) branch of the
-main **ncollide** repository. It is compiled using
-[MkDocs v0.15.3](http://www.mkdocs.org/). As explained in the next section,
-you need to fork, fix, and create a pull request targeting the **gh-pages**
-branch to make your contribution integrable into our code base. There are no
+[ncollide.org](https://github.com/sebcrozet/ncollide.org) repository. It is compiled using
+[MkDocs v0.17.3](http://www.mkdocs.org/). As explained in the next section,
+you need to fork, fix, and create a pull request to make your contribution
+integrable into our code base. There are no
 specific rules, except that all compilable code to generate illustrations must
 be located on the `src` folder.  Downloadable examples have to be located on
-the `examples` directory of the main project, i.e., on the **master** branch.
+the `examples` directory of the main project, i.e., on the [ncollide](https://github.com/sebcrozet/ncollide)
+repository.
 
 
 #### Working on the library
