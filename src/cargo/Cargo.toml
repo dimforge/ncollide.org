@@ -1,0 +1,11 @@
+[package]
+name    = "example-using-ncollide"
+version = "0.0.0"
+authors = [ "You" ]
+
+[dependencies]
+ncollide = "0.10.0"
+
+[[bin]]
+name = "example"
+path = "./example.rs"
