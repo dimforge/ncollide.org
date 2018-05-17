@@ -129,8 +129,7 @@ assert!(cuboid.half_extents().z == 3.0);
 -----------
 
 ### Cylinder
-The `Cylinder` structure describes a rectangle in two dimensions or a cylinder
-in three dimensions. Its principal axis is the $\mathbf{y}$ axis.
+The `Cylinder` structure describes a 3D cylinder with $\mathbf{y}$ as its principal axis.
 
 
 | Method | Description |
@@ -162,11 +161,10 @@ assert!(cylinder.radius() == 1.0);
 -----------
 
 ### Cone
-The `Cone` structure describes an isosceles triangle in two dimensions or a
-cone of revolution in three dimensions. A cone is defined by the _radius_ of its
-basis and its _half height_ − the half distance between the basis and the apex.
-It points upward, its principal axis is the $\mathbf{y}$ axis, and its apex has
-coordinates $(0, \text{cone.half_height()}, 0)$.
+The `Cone` structure describes a cone of revolution in three dimensions.
+A cone is defined by the _radius_ of its basis and its _half height_ − the
+half distance between the basis and the apex. It points upward, its principal
+axis is the $\mathbf{y}$ axis, and its apex has coordinates $(0, \text{cone.half_height()}, 0)$.
 
 | Method | Description |
 | --          | --       |
@@ -190,18 +188,16 @@ assert!(cone.radius() == 0.75);
 </div>
 
 <center>
-![2D cone](../img/cone2d.png)
 ![3D cone](../img/cone3d.png)
 </center>
 
 -----------
 
 ### Capsule
-The `Capsule` structure describes the Minkowski sum of a segment and a ball. In
-other words, this is a cylinder with extremities replaced by half-balls. A
-capsule is defined by the _half height_ of its cylindrical part and the
-_radius_ of its extremities.  It is centered at the origin and its principal
-axis is the $\mathbf{y}$ axis.
+The `Capsule` structure describes either a rectangle with extremitis replaced by half-discs (in 2D),
+or a cylinder with extremities replaced by half-balls (in 3D). A capsule is defined by the _half height_
+of its rectangular/cylindrical part and the _radius_ of its extremities. It is centered at the origin and
+its principal axis is the $\mathbf{y}$ axis.
 
 | Method | Description |
 | --          | --       |
