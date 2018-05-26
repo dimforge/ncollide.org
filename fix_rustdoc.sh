@@ -50,7 +50,7 @@ function patch_file() {
     </script>'
 
     escaped_nav=`echo $nav | sed ':a;N;$!ba;s/\n/ /g'`
-    sed -i '' -e "s%${body}%\0${escaped_nav}%g" $1
+    sed -i '' -e "s%${body}%&${escaped_nav}%g" $1
     fileend='
     <script>var base_url = "../" + window.rootPath;</script>
     <script src="/js/highlight.pack.js"></script>

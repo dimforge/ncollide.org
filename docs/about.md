@@ -12,7 +12,7 @@ Ph.D Student. His researches are about finding new methods to perform fast
 collision detection between complex CAD models that include smooth trimmed
 surfaces like NURBS.  Besides his fulltime job, he works on **ncollide** trying
 to help making Rust a great language for the development of real-time
-geometry-intensive applications. For more informations about his professional
+geometry-intensive applications. For more information about his professional
 background, check out his
 [LinkedIn](https://www.linkedin.com/pub/s%C3%A9bastien-crozet/25/875/416/en)
 profile.
@@ -67,14 +67,34 @@ Donations made to the lead developer are also appreciated. However, do not
 forget that **donating is not a requirement**. You are and will always be free
 to use **ncollide** for any purpose, including commercial applications, without
 paying anything (see the [BSD-3
-licence](https://github.com/sebcrozet/ncollide/blob/master/LICENSE)).
-<div style="float:right">
+licence](https://github.com/sebcrozet/ncollide/blob/master/LICENSE)). Recurrent
+donations, even the smallest, are the best way to encourage the dedication of a
+significant amount of time for open source activities. You may use Patreon (first
+button, monthly donations only) or Liberapay (second button, weekly, monthly, or
+yearly donations):
+<div style="text-align:center">
 <a href="https://www.patreon.com/bePatron?u=7111380" ><img src="../img/become_a_patron_button.png" alt="Become a Patron!" /></a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<script src="https://liberapay.com/sebcrozet/widgets/button.js"></script>
+<noscript><a href="https://liberapay.com/sebcrozet/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a></noscript>
+</div>
+<br/>
+<br/>
+For one-time donations, you may use PayPal (with or without an account):
+<br/>
+<br/>
+<div style="text-align:center">
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="ZCA2NXW6EJ9ZU">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1">
+</form>
 </div>
 
 # Contributors
 
-The list of constributors can be found [there](https://github.com/sebcrozet/ncollide/graphs/contributors). Here are additional contributors, including Patrons:
+The list of contributors can be found [there](https://github.com/sebcrozet/ncollide/graphs/contributors). Here are additional contributors, including Patrons:
 
 
 
@@ -91,6 +111,7 @@ The list of constributors can be found [there](https://github.com/sebcrozet/ncol
 * Connor McCluskey
 * Danny Fritz
 * Erlend Sogge Heggen
+* Florian Hanke
 * Frederic Wagner
 * Gohla
 * Ian Danforth
