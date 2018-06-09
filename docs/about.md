@@ -122,6 +122,7 @@ The list of contributors can be found [there](https://github.com/sebcrozet/ncoll
 * Jeb Brooks
 * Jeff Muizelaar
 * Jeff Parsons
+* Jordan Miner
 * J. Ryan Stinnett
 * Kasper Møller Andersen
 * Kyle Gretchev
@@ -132,6 +133,7 @@ The list of contributors can be found [there](https://github.com/sebcrozet/ncoll
 * Nathan Flurry
 * Nerijus Arlauskas
 * Olivier Saut
+* Pascal
 * Paul Houghton
 * Rick Richardson
 * Sanghyeon Seo
