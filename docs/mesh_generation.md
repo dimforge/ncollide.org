@@ -137,7 +137,7 @@ this section.
 
 <ul class="nav nav-tabs">
   <li class="active"><a id="tab_nav_link" data-toggle="tab" href="#path_3D">3D example</a></li>
-  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/path3d.rs')"></div>
+  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide3d/examples/path3d.rs')"></div>
 </ul>
 
 <div class="tab-content" markdown="1">
@@ -145,28 +145,28 @@ this section.
 ```rust
 let control_points = [
     Point3::new(0.0f32, 1.0, 0.0),
-    Point3::new(2.0f32, 4.0, 2.0),
-    Point3::new(2.0f32, 1.0, 4.0),
-    Point3::new(4.0f32, 4.0, 6.0),
-    Point3::new(2.0f32, 1.0, 8.0),
-    Point3::new(2.0f32, 4.0, 10.0),
-    Point3::new(0.0f32, 1.0, 12.0),
-    Point3::new(-2.0f32, 4.0, 10.0),
-    Point3::new(-2.0f32, 1.0, 8.0),
-    Point3::new(-4.0f32, 4.0, 6.0),
-    Point3::new(-2.0f32, 1.0, 4.0),
-    Point3::new(-2.0f32, 4.0, 2.0),
+    Point3::new(2.0, 4.0, 2.0),
+    Point3::new(2.0, 1.0, 4.0),
+    Point3::new(4.0, 4.0, 6.0),
+    Point3::new(2.0, 1.0, 8.0),
+    Point3::new(2.0, 4.0, 10.0),
+    Point3::new(0.0, 1.0, 12.0),
+    Point3::new(-2.0, 4.0, 10.0),
+    Point3::new(-2.0, 1.0, 8.0),
+    Point3::new(-4.0, 4.0, 6.0),
+    Point3::new(-2.0, 1.0, 4.0),
+    Point3::new(-2.0, 4.0, 2.0),
 ];
 
 // Setup the path.
-let bezier   = procedural::bezier_curve(control_points, 100);
+let bezier = procedural::bezier_curve(&control_points, 100);
 let mut path = PolylinePath::new(&bezier);
 
 // Setup the pattern.
-let start_cap   = ArrowheadCap::new(1.5f32, 2.0, 0.0);
-let end_cap     = ArrowheadCap::new(2.0f32, 2.0, 0.5);
-let pattern     = procedural::unit_circle(100);
-let mut pattern = PolylinePattern::new(&pattern, true, start_cap, end_cap);
+let start_cap = ArrowheadCap::new(1.5, 2.0, 0.0);
+let end_cap = ArrowheadCap::new(2.0, 2.0, 0.5);
+let pattern = ncollide2d::procedural::unit_circle(100);
+let mut pattern = PolylinePattern::new(pattern.coords(), true, start_cap, end_cap);
 
 // Stroke!
 let _ = pattern.stroke(&mut path);
@@ -190,14 +190,11 @@ line strips, including those accessible by the two former traits.
 
 It also exposes functions to compute the convex hull of a set of point using
 the [QuickHull algorithm](http://en.wikipedia.org/wiki/QuickHull) which has an
-average $O(n \log{n})$ time complexity. It is currently not implemented
-generically enough to handle any dimension. Therefore only individual functions
-exist for the 2D and 3D cases:
+average $O(n \log{n})$ time complexity:
 
 | Function            | Description                                     |
 | --                  | --                                              |
-| `convex_hull2(...)` | Computes the convex hull of a set of 2D points. |
-| `convex_hull3(...)` | Computes the convex hull of a set of 3D points. |
+| `convex_hull(...)` | Computes the convex hull of a set of points. |
 
 If you are not interested in the `Polyline` representation of the 2D convex
 hull but only on the original indices of the vertices it contains, use the
@@ -208,20 +205,20 @@ convex hull.
 <ul class="nav nav-tabs">
   <li class="active"><a id="tab_nav_link" data-toggle="tab" href="#convex_hull_2D">2D example</a></li>
   <li><a id="tab_nav_link" data-toggle="tab" href="#convex_hull_3D">3D example</a></li>
-  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/convex_hull3d.rs')"></div>
+  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide3d/examples/convex_hull3d.rs')"></div>
   <div class="sp"></div>
-  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/convex_hull2d.rs')"></div>
+  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide2d/examples/convex_hull2d.rs')"></div>
 </ul>
 
 <div class="tab-content" markdown="1">
   <div id="convex_hull_2D" class="tab-pane in active">
 ```rust
 let mut points = Vec::new();
-for _ in range(0u, 100000) {
-    points.push(rand::random::<Point2<f32>>() * 2.0f32);
+for _ in 0usize..100000 {
+    points.push(rand::random::<Point3<f32>>() * 2.0);
 }
 
-let convex_hull = transformation::convex_hull2(&points[..]);
+let _ = transformation::convex_hull(&points[..]);
 ```
   </div>
   <div id="convex_hull_3D" class="tab-pane">
@@ -231,7 +228,7 @@ for _ in range(0u, 100000) {
     points.push(rand::random::<Point3<f32>>() * 2.0f32);
 }
 
-let convex_hull = transformation::convex_hull3(&points[..]);
+let convex_hull = transformation::convex_hull(&points[..]);
 ```
   </div>
 </div>
@@ -320,7 +317,7 @@ the figure above.
 
 <ul class="nav nav-tabs">
   <li class="active"><a id="tab_nav_link" data-toggle="tab" href="#hacd_3D">3D example</a></li>
-  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/hacd3d.rs')"></div>
+  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide3d/examples/hacd3d.rs')"></div>
 </ul>
 
 <div class="tab-content" markdown="1">
@@ -340,11 +337,10 @@ let control_points = [
     Point3::new(-2.0, 1.0, 4.0),
     Point3::new(-2.0, 4.0, 2.0),
 ];
-
-let bezier      = procedural::bezier_curve(&control_points, 100);
-let mut path    = PolylinePath::new(&bezier);
-let pattern     = procedural::unit_circle(100);
-let mut pattern = PolylinePattern::new(&pattern, true, NoCap::new(), NoCap::new());
+let bezier = procedural::bezier_curve(&control_points, 100);
+let mut path = PolylinePath::new(&bezier);
+let pattern = ncollide2d::procedural::unit_circle(100);
+let mut pattern = PolylinePattern::new(pattern.coords(), true, NoCap::new(), NoCap::new());
 let mut trimesh = pattern.stroke(&mut path);
 
 // The path stroke does not generate normals =(
@@ -352,8 +348,8 @@ let mut trimesh = pattern.stroke(&mut path);
 trimesh.recompute_normals();
 
 /*
- * Decomposition of the mesh.
- */
+  * Decomposition of the mesh.
+  */
 let (decomp, partitioning) = transformation::hacd(trimesh.clone(), 0.03, 0);
 
 // We end up with 7 convex parts.

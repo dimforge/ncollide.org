@@ -47,7 +47,7 @@ is useful, e.g., to optimize some [broad
 phase](../collision_detection_pipeline/#broad-phase) algorithms.
 
 
-Finally, the `HasBoundingVolume` trait which is parametrized by the type of the
+Finally, the `HasBoundingVolume` trait which is parameterized by the type of the
 returned bounding volume is implemented by shapes and other entities that can
 construct their own bounding volume given a transformation matrix:
 
@@ -91,17 +91,17 @@ the usual static method `BoundingSphere::new(center, radius)` or with the
 shape and its position (e.g. a transformation matrix). In generic code, you
 might as well use the `HasBoundingVolume` trait.
 
-The following example computes the bounding spheres of a cone and a cylinder,
-merges them together, creates an enlarged version of the cylinder bounding
-sphere, and performs some tests.
+The following example computes the bounding spheres of two cuboids,
+merges them together, creates an enlarged version of the second one,
+and performs some tests.
 
 <ul class="nav nav-tabs">
   <li class="active"><a id="tab_nav_link" data-toggle="tab" href="#bsphere_2D">2D example</a></li>
   <li><a id="tab_nav_link" data-toggle="tab" href="#bsphere_3D">3D example</a></li>
 
-  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/bounding_sphere3d.rs')"></div>
+  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide3d/examples/bounding_sphere3d.rs')"></div>
   <div class="sp"></div>
-  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/bounding_sphere2d.rs')"></div>
+  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide2d/examples/bounding_sphere2d.rs')"></div>
 
 </ul>
 
@@ -111,31 +111,31 @@ sphere, and performs some tests.
 /*
  * Initialize the shapes.
  */
-let cone     = Cone::new(0.5, 0.5);
-let cylinder = Cylinder::new(1.0, 0.5);
+let cube1 = Cuboid::new(Vector2::repeat(0.5));
+let cube2 = Cuboid::new(Vector2::new(1.0, 0.5));
 
-let cone_pos     = Isometry2::new(Vector2::y(), na::zero()); // 1.0 along the `y` axis.
-let cylinder_pos = na::one::<Isometry2<f32>>();              // Identity matrix.
+let cube1_pos = Isometry2::new(Vector2::y(), na::zero()); // 1.0 along the `y` axis.
+let cube2_pos = na::one::<Isometry2<f32>>(); // Identity matrix.
 
 /*
  * Compute their bounding spheres.
  */
-let bounding_sphere_cone     = bounding_volume::bounding_sphere(&cone, &cone_pos);
-let bounding_sphere_cylinder = bounding_volume::bounding_sphere(&cylinder, &cylinder_pos);
+let bounding_sphere_cube1 = bounding_volume::bounding_sphere(&cube1, &cube1_pos);
+let bounding_sphere_cube2 = bounding_volume::bounding_sphere(&cube2, &cube2_pos);
 
 // Merge the two spheres.
-let bounding_bounding_sphere = bounding_sphere_cone.merged(&bounding_sphere_cylinder);
+let bounding_bounding_sphere = bounding_sphere_cube1.merged(&bounding_sphere_cube2);
 
-// Enlarge the cylinder bounding sphere.
-let loose_bounding_sphere_cylinder = bounding_sphere_cylinder.loosened(1.0);
+// Enlarge the cube2 bounding sphere.
+let loose_bounding_sphere_cube2 = bounding_sphere_cube2.loosened(1.0);
 
 // Intersection and inclusion tests.
-assert!(bounding_sphere_cone.intersects(&bounding_sphere_cylinder));
-assert!(bounding_bounding_sphere.contains(&bounding_sphere_cone));
-assert!(bounding_bounding_sphere.contains(&bounding_sphere_cylinder));
-assert!(!bounding_sphere_cylinder.contains(&bounding_bounding_sphere));
-assert!(!bounding_sphere_cone.contains(&bounding_bounding_sphere));
-assert!(loose_bounding_sphere_cylinder.contains(&bounding_sphere_cylinder));
+assert!(bounding_sphere_cube1.intersects(&bounding_sphere_cube2));
+assert!(bounding_bounding_sphere.contains(&bounding_sphere_cube1));
+assert!(bounding_bounding_sphere.contains(&bounding_sphere_cube2));
+assert!(!bounding_sphere_cube2.contains(&bounding_bounding_sphere));
+assert!(!bounding_sphere_cube1.contains(&bounding_bounding_sphere));
+assert!(loose_bounding_sphere_cube2.contains(&bounding_sphere_cube2));
 ```
   </div>
   <div id="bsphere_3D" class="tab-pane">
@@ -143,31 +143,31 @@ assert!(loose_bounding_sphere_cylinder.contains(&bounding_sphere_cylinder));
 /*
  * Initialize the shapes.
  */
-let cone     = Cone::new(0.5, 0.5);
-let cylinder = Cylinder::new(1.0, 0.5);
+let cube1 = Cuboid::new(Vector3::repeat(0.5));
+let cube2 = Cuboid::new(Vector3::new(0.5, 1.0, 0.5));
 
-let cone_pos     = Isometry3::new(Vector3::z(), na::zero()); // 1.0 along the `z` axis.
-let cylinder_pos = na::one::<Isometry3<f32>>();              // Identity matrix.
+let cube1_pos = Isometry3::new(Vector3::z(), na::zero()); // 1.0 along the `z` axis.
+let cube2_pos = na::one::<Isometry3<f32>>(); // Identity matrix.
 
 /*
  * Compute their bounding spheres.
  */
-let bounding_sphere_cone     = bounding_volume::bounding_sphere(&cone, &cone_pos);
-let bounding_sphere_cylinder = bounding_volume::bounding_sphere(&cylinder, &cylinder_pos);
+let bounding_sphere_cube1 = bounding_volume::bounding_sphere(&cube1, &cube1_pos);
+let bounding_sphere_cube2 = bounding_volume::bounding_sphere(&cube2, &cube2_pos);
 
 // Merge the two spheres.
-let bounding_bounding_sphere = bounding_sphere_cone.merged(&bounding_sphere_cylinder);
+let bounding_bounding_sphere = bounding_sphere_cube1.merged(&bounding_sphere_cube2);
 
-// Enlarge the cylinder bounding sphere.
-let loose_bounding_sphere_cylinder = bounding_sphere_cylinder.loosened(1.0);
+// Enlarge the cube2 bounding sphere.
+let loose_bounding_sphere_cube2 = bounding_sphere_cube2.loosened(1.0);
 
 // Intersection and inclusion tests.
-assert!(bounding_sphere_cone.intersects(&bounding_sphere_cylinder));
-assert!(bounding_bounding_sphere.contains(&bounding_sphere_cone));
-assert!(bounding_bounding_sphere.contains(&bounding_sphere_cylinder));
-assert!(!bounding_sphere_cylinder.contains(&bounding_bounding_sphere));
-assert!(!bounding_sphere_cone.contains(&bounding_bounding_sphere));
-assert!(loose_bounding_sphere_cylinder.contains(&bounding_sphere_cylinder));
+assert!(bounding_sphere_cube1.intersects(&bounding_sphere_cube2));
+assert!(bounding_bounding_sphere.contains(&bounding_sphere_cube1));
+assert!(bounding_bounding_sphere.contains(&bounding_sphere_cube2));
+assert!(!bounding_sphere_cube2.contains(&bounding_bounding_sphere));
+assert!(!bounding_sphere_cube1.contains(&bounding_bounding_sphere));
+assert!(loose_bounding_sphere_cube2.contains(&bounding_sphere_cube2));
 ```
   </div>
 </div>
@@ -214,17 +214,17 @@ method is to use the `bounding_volume.aabb(g, m)` function, where `g` and `m`
 are the shape and its position (e.g. a transformation matrix). Finally, generic
 applications may directly call the method from the `HasBoundingVolume` trait.
 
-The following example computes the AABB of a cone and a cylinder,
-merges them together, creates an enlarged version of the cylinder AABB, and
+The following example computes the AABB of two balls,
+merges them together, creates an enlarged version of the second one, and
 performs some tests.
 
 <ul class="nav nav-tabs">
   <li class="active"><a id="tab_nav_link" data-toggle="tab" href="#aabb_2D">2D example</a></li>
   <li><a id="tab_nav_link" data-toggle="tab" href="#aabb_3D">3D example</a></li>
 
-  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/aabb3d.rs')"></div>
+  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide3d/examples/aabb3d.rs')"></div>
   <div class="sp"></div>
-  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/aabb2d.rs')"></div>
+  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide2d/examples/aabb2d.rs')"></div>
 
 </ul>
 
@@ -234,31 +234,31 @@ performs some tests.
 /*
  * Initialize the shapes.
  */
-let cone     = Cone::new(0.5, 0.5);
-let cylinder = Cylinder::new(1.0, 0.5);
+let ball1 = Ball::new(0.5);
+let ball2 = Ball::new(1.0);
 
-let cone_pos     = Isometry2::new(Vector2::y(), na::zero()); // 1.0 along the `y` axis.
-let cylinder_pos = na::one::<Isometry2<f32>>();              // Identity matrix.
+let ball1_pos = Isometry2::new(Vector2::y(), na::zero()); // 1.0 along the `y` axis.
+let ball2_pos = Isometry2::identity(); // Identity matrix.
 
 /*
  * Compute their axis-aligned bounding boxes.
  */
-let aabb_cone     = bounding_volume::aabb(&cone, &cone_pos);
-let aabb_cylinder = bounding_volume::aabb(&cylinder, &cylinder_pos);
+let aabb_ball1 = bounding_volume::aabb(&ball1, &ball1_pos);
+let aabb_ball2 = bounding_volume::aabb(&ball2, &ball2_pos);
 
 // Merge the two boxes.
-let bounding_aabb = aabb_cone.merged(&aabb_cylinder);
+let bounding_aabb = aabb_ball1.merged(&aabb_ball2);
 
-// Enlarge the cylinder aabb.
-let loose_aabb_cylinder = aabb_cylinder.loosened(1.0);
+// Enlarge the ball2 aabb.
+let loose_aabb_ball2 = aabb_ball2.loosened(1.0);
 
 // Intersection and inclusion tests.
-assert!(aabb_cone.intersects(&aabb_cylinder));
-assert!(bounding_aabb.contains(&aabb_cone));
-assert!(bounding_aabb.contains(&aabb_cylinder));
-assert!(!aabb_cylinder.contains(&bounding_aabb));
-assert!(!aabb_cone.contains(&bounding_aabb));
-assert!(loose_aabb_cylinder.contains(&aabb_cylinder));
+assert!(aabb_ball1.intersects(&aabb_ball2));
+assert!(bounding_aabb.contains(&aabb_ball1));
+assert!(bounding_aabb.contains(&aabb_ball2));
+assert!(!aabb_ball2.contains(&bounding_aabb));
+assert!(!aabb_ball1.contains(&bounding_aabb));
+assert!(loose_aabb_ball2.contains(&aabb_ball2));
 ```
   </div>
   <div id="aabb_3D" class="tab-pane">
@@ -266,31 +266,31 @@ assert!(loose_aabb_cylinder.contains(&aabb_cylinder));
 /*
  * Initialize the shapes.
  */
-let cone     = Cone::new(0.5, 0.5);
-let cylinder = Cylinder::new(1.0, 0.5);
+let ball1 = Ball::new(0.5);
+let ball2 = Ball::new(1.0);
 
-let cone_pos     = Isometry3::new(Vector3::z(), na::zero()); // 1.0 along the `z` axis.
-let cylinder_pos = na::one::<Isometry3<f32>>();              // Identity matrix.
+let ball1_pos = Isometry3::new(Vector3::y(), na::zero()); // 1.0 along the `y` axis.
+let ball2_pos = Isometry3::identity(); // Identity matrix.
 
 /*
  * Compute their axis-aligned bounding boxes.
  */
-let aabb_cone     = bounding_volume::aabb(&cone, &cone_pos);
-let aabb_cylinder = bounding_volume::aabb(&cylinder, &cylinder_pos);
+let aabb_ball1 = bounding_volume::aabb(&ball1, &ball1_pos);
+let aabb_ball2 = bounding_volume::aabb(&ball2, &ball2_pos);
 
 // Merge the two boxes.
-let bounding_aabb = aabb_cone.merged(&aabb_cylinder);
+let bounding_aabb = aabb_ball1.merged(&aabb_ball2);
 
-// Enlarge the cylinder aabb.
-let loose_aabb_cylinder = aabb_cylinder.loosened(1.0);
+// Enlarge the ball2 aabb.
+let loose_aabb_ball2 = aabb_ball2.loosened(1.0);
 
 // Intersection and inclusion tests.
-assert!(aabb_cone.intersects(&aabb_cylinder));
-assert!(bounding_aabb.contains(&aabb_cone));
-assert!(bounding_aabb.contains(&aabb_cylinder));
-assert!(!aabb_cylinder.contains(&bounding_aabb));
-assert!(!aabb_cone.contains(&bounding_aabb));
-assert!(loose_aabb_cylinder.contains(&aabb_cylinder));
+assert!(aabb_ball1.intersects(&aabb_ball2));
+assert!(bounding_aabb.contains(&aabb_ball1));
+assert!(bounding_aabb.contains(&aabb_ball2));
+assert!(!aabb_ball2.contains(&bounding_aabb));
+assert!(!aabb_ball1.contains(&bounding_aabb));
+assert!(loose_aabb_ball2.contains(&aabb_ball2));
 ```
   </div>
 </div>
@@ -459,9 +459,9 @@ to their bounding spheres, and casts some rays on it using the
   <li class="active"><a id="tab_nav_link" data-toggle="tab" href="#bvt_2D">2D example</a></li>
   <li><a id="tab_nav_link" data-toggle="tab" href="#bvt_3D">3D example</a></li>
 
-  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/ray_bvt3d.rs')"></div>
+  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide3d/examples/ray_bvt3d.rs')"></div>
   <div class="sp"></div>
-  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/ray_bvt2d.rs')"></div>
+  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide2d/examples/ray_bvt2d.rs')"></div>
 
 </ul>
 
@@ -471,62 +471,74 @@ to their bounding spheres, and casts some rays on it using the
 /*
  * Custom trait to group `HasBoudingSphere` and `RayCast` together.
  */
-trait Shape2: HasBoundingSphere<Point2<f64>, Isometry2<f64>> +
-              RayCast<Point2<f64>, Isometry2<f64>> {
-}
+trait Shape: HasBoundingVolume<f64, BoundingSphere<f64>> + RayCast<f64> {}
 
-impl<T> Shape2 for T
-    where T: HasBoundingSphere<Point2<f64>, Isometry2<f64>> +
-             RayCast<Point2<f64>, Isometry2<f64>> {
+impl<T> Shape for T
+where
+    T: HasBoundingVolume<f64, BoundingSphere<f64>> + RayCast<f64>,
+{
 }
 
 fn main() {
-    let ball = Ball::new(0.5);
-    let caps = Capsule::new(0.5, 0.75);
-    let cone = Cone::new(0.5, 0.75);
-    let cube = Cuboid::new(Vector2::new(1.0, 0.5));
+    let ball1 = Ball::new(0.5);
+    let ball2 = Ball::new(0.75);
+    let cube1 = Cuboid::new(Vector2::new(0.5, 0.75));
+    let cube2 = Cuboid::new(Vector2::new(1.0, 0.5));
 
     let shapes = [
-        &ball as &Shape2,
-        &caps as &Shape2,
-        &cone as &Shape2,
-        &cube as &Shape2
+        &ball1 as &Shape,
+        &ball2 as &Shape,
+        &cube1 as &Shape,
+        &cube2 as &Shape,
     ];
 
     let poss = [
         Isometry2::new(Vector2::new(1.0, 0.0), na::zero()),
         Isometry2::new(Vector2::new(2.0, 0.0), na::zero()),
         Isometry2::new(Vector2::new(3.0, 0.0), na::zero()),
-        Isometry2::new(Vector2::new(4.0, 2.0), na::zero())
+        Isometry2::new(Vector2::new(4.0, 2.0), na::zero()),
     ];
 
-    let idx_and_bounding_spheres  = vec!(
-        (0usize, shapes[0].bounding_sphere(&poss[0])),
-        (1usize, shapes[1].bounding_sphere(&poss[1])),
-        (2usize, shapes[2].bounding_sphere(&poss[2])),
-        (3usize, shapes[3].bounding_sphere(&poss[3]))
-    );
+    // FIXME: why do we need the explicit type annotation here?
+    let idx_and_bounding_spheres: Vec<(usize, BoundingSphere<f64>)> = vec![
+        (
+            0usize,
+            bounding_volume::bounding_sphere(shapes[0], &poss[0]),
+        ),
+        (
+            1usize,
+            bounding_volume::bounding_sphere(shapes[1], &poss[1]),
+        ),
+        (
+            2usize,
+            bounding_volume::bounding_sphere(shapes[2], &poss[2]),
+        ),
+        (
+            3usize,
+            bounding_volume::bounding_sphere(shapes[3], &poss[3]),
+        ),
+    ];
 
-    let bvt      = BVT::new_balanced(idx_and_bounding_spheres);
-    let ray_hit  = Ray::new(na::orig(), Vector2::x());
-    let ray_miss = Ray::new(na::orig(), -Vector2::x());
+    let bvt = BVT::new_balanced(idx_and_bounding_spheres);
+    let ray_hit = Ray::new(na::origin(), Vector2::x());
+    let ray_miss = Ray::new(na::origin(), -Vector2::x());
 
     /*
      * Collecting all objects with bounding volumes intersecting the ray.
      */
-    let mut collector_hit:  Vec<usize> = Vec::new();
+    let mut collector_hit: Vec<usize> = Vec::new();
     let mut collector_miss: Vec<usize> = Vec::new();
 
     // We need a new scope here to avoid borrowing issues.
     {
-        let mut visitor_hit  = RayInterferencesCollector::new(&ray_hit, &mut collector_hit);
+        let mut visitor_hit = RayInterferencesCollector::new(&ray_hit, &mut collector_hit);
         let mut visitor_miss = RayInterferencesCollector::new(&ray_miss, &mut collector_miss);
 
         bvt.visit(&mut visitor_hit);
         bvt.visit(&mut visitor_miss);
     }
 
-    assert!(collector_hit.len()  == 3);
+    assert!(collector_hit.len() == 3);
     assert!(collector_miss.len() == 0);
 }
 ```
@@ -536,13 +548,12 @@ fn main() {
 /*
  * Custom trait to group `HasBoudingSphere` and `RayCast` together.
  */
-trait Shape3: HasBoundingSphere<Point3<f64>, Isometry3<f64>> +
-              RayCast<Point3<f64>, Isometry3<f64>> {
-}
+trait Shape3: HasBoundingVolume<f64, BoundingSphere<f64>> + RayCast<f64> {}
 
 impl<T> Shape3 for T
-    where T: HasBoundingSphere<Point3<f64>, Isometry3<f64>> +
-             RayCast<Point3<f64>, Isometry3<f64>> {
+where
+    T: HasBoundingVolume<f64, BoundingSphere<f64>> + RayCast<f64>,
+{
 }
 
 fn main() {
@@ -555,43 +566,55 @@ fn main() {
         &ball as &Shape3,
         &caps as &Shape3,
         &cone as &Shape3,
-        &cube as &Shape3
+        &cube as &Shape3,
     ];
 
     let poss = [
         Isometry3::new(Vector3::new(0.0, 0.0, 1.0), na::zero()),
         Isometry3::new(Vector3::new(0.0, 0.0, 2.0), na::zero()),
         Isometry3::new(Vector3::new(0.0, 0.0, 3.0), na::zero()),
-        Isometry3::new(Vector3::new(0.0, 2.0, 4.0), na::zero())
+        Isometry3::new(Vector3::new(0.0, 2.0, 4.0), na::zero()),
     ];
 
-    let idx_and_bounding_spheres  = vec!(
-        (0usize, shapes[0].bounding_sphere(&poss[0])),
-        (1usize, shapes[1].bounding_sphere(&poss[1])),
-        (2usize, shapes[2].bounding_sphere(&poss[2])),
-        (3usize, shapes[3].bounding_sphere(&poss[3]))
-    );
+    let idx_and_bounding_spheres: Vec<(usize, BoundingSphere<f64>)> = vec![
+        (
+            0usize,
+            bounding_volume::bounding_sphere(shapes[0], &poss[0]),
+        ),
+        (
+            1usize,
+            bounding_volume::bounding_sphere(shapes[1], &poss[1]),
+        ),
+        (
+            2usize,
+            bounding_volume::bounding_sphere(shapes[2], &poss[2]),
+        ),
+        (
+            3usize,
+            bounding_volume::bounding_sphere(shapes[3], &poss[3]),
+        ),
+    ];
 
-    let bvt      = BVT::new_balanced(idx_and_bounding_spheres);
-    let ray_hit  = Ray::new(na::orig(), Vector3::z());
-    let ray_miss = Ray::new(na::orig(), -Vector3::z());
+    let bvt = BVT::new_balanced(idx_and_bounding_spheres);
+    let ray_hit = Ray::new(na::origin(), Vector3::z());
+    let ray_miss = Ray::new(na::origin(), -Vector3::z());
 
     /*
      * Ray cast using a visitor.
      */
-    let mut collector_hit:  Vec<usize> = Vec::new();
+    let mut collector_hit: Vec<usize> = Vec::new();
     let mut collector_miss: Vec<usize> = Vec::new();
 
     // We need a new scope here to avoid borrowing issues.
     {
-        let mut visitor_hit  = RayInterferencesCollector::new(&ray_hit, &mut collector_hit);
+        let mut visitor_hit = RayInterferencesCollector::new(&ray_hit, &mut collector_hit);
         let mut visitor_miss = RayInterferencesCollector::new(&ray_miss, &mut collector_miss);
 
         bvt.visit(&mut visitor_hit);
         bvt.visit(&mut visitor_miss);
     }
 
-    assert!(collector_hit.len()  == 3);
+    assert!(collector_hit.len() == 3);
     assert!(collector_miss.len() == 0);
 }
 ```

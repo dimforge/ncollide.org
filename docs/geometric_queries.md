@@ -52,44 +52,56 @@ affected by the `solid` flag because it is outside of it anyway.
 <ul class="nav nav-tabs">
   <li class="active"><a id="tab_nav_link" data-toggle="tab" href="#solid_point_query_2D">2D example</a></li>
   <li><a id="tab_nav_link" data-toggle="tab" href="#solid_point_query_3D">3D example</a></li>
-  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/solid_point_query3d.rs')"></div>
+  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide3d/examples/solid_point_query3d.rs')"></div>
   <div class="sp"></div>
-  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/solid_point_query2d.rs')"></div>
+  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide2d/examples/solid_point_query2d.rs')"></div>
 </ul>
 
 <div class="tab-content" markdown="1">
   <div id="solid_point_query_2D" class="tab-pane in active">
 ```rust
-let cuboid     = Cuboid::new(Vector2::new(1.0, 2.0));
-let pt_inside  = na::origin::<Point2<f32>>();
+let cuboid = Cuboid::new(Vector2::new(1.0, 2.0));
+let pt_inside = na::origin::<Point2<f32>>();
 let pt_outside = Point2::new(2.0, 2.0);
 
 // Solid projection.
-assert_eq!(cuboid.distance_to_point(&Identity::new(), &pt_inside, true), 0.0);
+assert_eq!(cuboid.distance_to_point(&Isometry2::identity(), &pt_inside, true), 0.0);
 
 // Non-solid projection.
-assert_eq!(cuboid.distance_to_point(&Identity::new(), &pt_inside, false), -1.0);
+assert_eq!(
+    cuboid.distance_to_point(&Isometry2::identity(), &pt_inside, false),
+    -1.0
+);
 
 // The other point is outside of the cuboid so the `solid` flag has no effect.
-assert_eq!(cuboid.distance_to_point(&Identity::new(), &pt_outside, false), 1.0);
-assert_eq!(cuboid.distance_to_point(&Identity::new(), &pt_outside, true), 1.0);
+assert_eq!(
+    cuboid.distance_to_point(&Isometry2::identity(), &pt_outside, false),
+    1.0
+);
+assert_eq!(cuboid.distance_to_point(&Isometry2::identity(), &pt_outside, true), 1.0);
 ```
   </div>
   <div id="solid_point_query_3D" class="tab-pane">
 ```rust
-let cuboid     = Cuboid::new(Vector3::new(1.0, 2.0, 2.0));
-let pt_inside  = na::origin::<Point3<f32>>();
+let cuboid = Cuboid::new(Vector3::new(1.0, 2.0, 2.0));
+let pt_inside = na::origin::<Point3<f32>>();
 let pt_outside = Point3::new(2.0, 2.0, 2.0);
 
 // Solid projection.
-assert_eq!(cuboid.distance_to_point(&Identity::new(), &pt_inside, true), 0.0);
+assert_eq!(cuboid.distance_to_point(&Isometry3::identity(), &pt_inside, true), 0.0);
 
 // Non-solid projection.
-assert_eq!(cuboid.distance_to_point(&Identity::new(), &pt_inside, false), -1.0);
+assert_eq!(
+    cuboid.distance_to_point(&Isometry3::identity(), &pt_inside, false),
+    -1.0
+);
 
 // The other point is outside of the cuboid so the `solid` flag has no effect.
-assert_eq!(cuboid.distance_to_point(&Identity::new(), &pt_outside, false), 1.0);
-assert_eq!(cuboid.distance_to_point(&Identity::new(), &pt_outside, true), 1.0);
+assert_eq!(
+    cuboid.distance_to_point(&Isometry3::identity(), &pt_outside, false),
+    1.0
+);
+assert_eq!(cuboid.distance_to_point(&Isometry3::identity(), &pt_outside, true), 1.0);
 ```
   </div>
 </div>
@@ -171,44 +183,50 @@ away from the cuboid.
 <ul class="nav nav-tabs">
   <li class="active"><a id="tab_nav_link" data-toggle="tab" href="#solid_ray_cast_2D">2D example</a></li>
   <li><a id="tab_nav_link" data-toggle="tab" href="#solid_ray_cast_3D">3D example</a></li>
-  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/solid_ray_cast3d.rs')"></div>
+  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide3d/examples/solid_ray_cast3d.rs')"></div>
   <div class="sp"></div>
-  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/solid_ray_cast2d.rs')"></div>
+  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide2d/examples/solid_ray_cast2d.rs')"></div>
 </ul>
 
 <div class="tab-content" markdown="1">
   <div id="solid_ray_cast_2D" class="tab-pane in active">
 ```rust
-let cuboid     = Cuboid::new(Vector2::new(1.0, 2.0));
-let ray_inside = Ray::new(na::orig::<Point2<f32>>(), Vector2::y());
-let ray_miss   = Ray::new(Point2::new(2.0, 2.0), Vector2::new(1.0, 1.0));
+let cuboid = Cuboid::new(Vector2::new(1.0, 2.0));
+let ray_inside = Ray::new(na::origin::<Point2<f32>>(), Vector2::y());
+let ray_miss = Ray::new(Point2::new(2.0, 2.0), Vector2::new(1.0, 1.0));
 
 // Solid cast.
-assert!(cuboid.toi_with_ray(&Identity::new(), &ray_inside, true).unwrap()  == 0.0);
+assert_eq!(
+    cuboid.toi_with_ray(&Isometry2::identity(), &ray_inside, true).unwrap(),
+    0.0
+);
 
 // Non-solid cast.
-assert!(cuboid.toi_with_ray(&Identity::new(), &ray_inside, false).unwrap() == 2.0);
+assert_eq!(
+    cuboid.toi_with_ray(&Isometry2::identity(), &ray_inside, false).unwrap(),
+    2.0
+);
 
-// The other ray does not intersect this shape so the `solid` flag has no influence.
-assert!(cuboid.toi_with_ray(&Identity::new(), &ray_miss, false).is_none());
-assert!(cuboid.toi_with_ray(&Identity::new(), &ray_miss, true).is_none());
+// The other ray does not intersect this shape.
+assert!(cuboid.toi_with_ray(&Isometry2::identity(), &ray_miss, false).is_none());
+assert!(cuboid.toi_with_ray(&Isometry2::identity(), &ray_miss, true).is_none());
 ```
   </div>
   <div id="solid_ray_cast_3D" class="tab-pane">
 ```rust
-let cuboid     = Cuboid::new(Vector3::new(1.0, 2.0, 1.0));
-let ray_inside = Ray::new(na::orig::<Point3<f32>>(), Vector3::y());
-let ray_miss   = Ray::new(Point3::new(2.0, 2.0, 2.0), Vector3::new(1.0, 1.0, 1.0));
+let cuboid = Cuboid::new(Vector3::new(1.0, 2.0, 1.0));
+let ray_inside = Ray::new(na::origin::<Point3<f32>>(), Vector3::y());
+let ray_miss = Ray::new(Point3::new(2.0, 2.0, 2.0), Vector3::new(1.0, 1.0, 1.0));
 
 // Solid cast.
-assert!(cuboid.toi_with_ray(&Identity::new(), &ray_inside, true).unwrap()  == 0.0);
+assert!(cuboid.toi_with_ray(&Isometry3::identity(), &ray_inside, true).unwrap() == 0.0);
 
 // Non-solid cast.
-assert!(cuboid.toi_with_ray(&Identity::new(), &ray_inside, false).unwrap() == 2.0);
+assert!(cuboid.toi_with_ray(&Isometry3::identity(), &ray_inside, false).unwrap() == 2.0);
 
-// The other ray does not intersect this shape so the `solid` flag has no influence.
-assert!(cuboid.toi_with_ray(&Identity::new(), &ray_miss, false).is_none());
-assert!(cuboid.toi_with_ray(&Identity::new(), &ray_miss, true).is_none());
+// The other ray does not intersect this shape.
+assert!(cuboid.toi_with_ray(&Isometry3::identity(), &ray_miss, false).is_none());
+assert!(cuboid.toi_with_ray(&Isometry3::identity(), &ray_miss, true).is_none());
 ```
   </div>
 </div>
@@ -255,9 +273,9 @@ intersecting the red curve:
 <ul class="nav nav-tabs">
   <li class="active"><a id="tab_nav_link" data-toggle="tab" href="#proximity_query_2D">2D example</a></li>
   <li><a id="tab_nav_link" data-toggle="tab" href="#proximity_query_3D">3D example</a></li>
-  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/proximity_query3d.rs')"></div>
+  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide3d/examples/proximity_query3d.rs')"></div>
   <div class="sp"></div>
-  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/proximity_query2d.rs')"></div>
+  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide2d/examples/proximity_query2d.rs')"></div>
 </ul>
 
 <div class="tab-content" markdown="1">
@@ -326,68 +344,46 @@ sphere.
 <ul class="nav nav-tabs">
   <li class="active"><a id="tab_nav_link" data-toggle="tab" href="#distance_query_2D">2D example</a></li>
   <li><a id="tab_nav_link" data-toggle="tab" href="#distance_query_3D">3D example</a></li>
-  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/distance_query3d.rs')"></div>
+  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide3d/examples/distance_query3d.rs')"></div>
   <div class="sp"></div>
-  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/distance_query2d.rs')"></div>
+  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide2d/examples/distance_query2d.rs')"></div>
 </ul>
 
 <div class="tab-content" markdown="1">
   <div id="distance_query_2D" class="tab-pane in active">
 ```rust
-#[macro_use]
-extern crate approx; // for relative_eq!
-extern crate nalgebra as na;
-extern crate ncollide;
+let cuboid = Cuboid::new(Vector2::new(1.0, 1.0));
+let ball   = Ball::new(1.0);
 
-use na::{Isometry2, Vector2};
-use ncollide::shape::{Cuboid, Ball};
-use ncollide::query;
+let cuboid_pos             = na::one();
+let ball_pos_intersecting  = Isometry2::new(Vector2::y(), na::zero());
+let ball_pos_disjoint      = Isometry2::new(Vector2::y() * 3.0, na::zero());
 
-fn main() {
-    let cuboid = Cuboid::new(Vector2::new(1.0, 1.0));
-    let ball   = Ball::new(1.0);
+let dist_intersecting = query::distance(&ball_pos_intersecting, &ball,
+                                        &cuboid_pos,            &cuboid);
+let dist_disjoint     = query::distance(&ball_pos_disjoint, &ball,
+                                        &cuboid_pos,        &cuboid);
 
-    let cuboid_pos             = na::one();
-    let ball_pos_intersecting  = Isometry2::new(Vector2::new(1.0, 0.0), na::zero());
-    let ball_pos_disjoint      = Isometry2::new(Vector2::new(3.0, 0.0), na::zero());
-
-    let dist_intersecting = query::distance(&ball_pos_intersecting, &ball,
-                                            &cuboid_pos,            &cuboid);
-    let dist_disjoint     = query::distance(&ball_pos_disjoint, &ball,
-                                            &cuboid_pos,        &cuboid);
-
-    assert_eq!(dist_intersecting, 0.0);
-    assert!(relative_eq!(dist_disjoint, 1.0, epsilon = 1.0e-7));
-}
+assert_eq!(dist_intersecting, 0.0);
+assert!(relative_eq!(dist_disjoint, 1.0, epsilon = 1.0e-7));
 ```
   </div>
   <div id="distance_query_3D" class="tab-pane">
 ```rust
-#[macro_use]
-extern crate approx; // for relative_eq!
-extern crate nalgebra as na;
-extern crate ncollide;
+let cuboid = Cuboid::new(Vector3::new(1.0, 1.0, 1.0));
+let ball   = Ball::new(1.0);
 
-use na::{Isometry3, Vector3};
-use ncollide::shape::{Cuboid, Ball};
-use ncollide::query;
+let cuboid_pos             = na::one();
+let ball_pos_intersecting  = Isometry3::new(Vector3::y(), na::zero());
+let ball_pos_disjoint      = Isometry3::new(Vector3::y() * 3.0, na::zero());
 
-fn main() {
-    let cuboid = Cuboid::new(Vector3::new(1.0, 1.0, 1.0));
-    let ball   = Ball::new(1.0);
+let dist_intersecting = query::distance(&ball_pos_intersecting, &ball,
+                                        &cuboid_pos,            &cuboid);
+let dist_disjoint     = query::distance(&ball_pos_disjoint, &ball,
+                                        &cuboid_pos,        &cuboid);
 
-    let cuboid_pos             = na::one();
-    let ball_pos_intersecting  = Isometry3::new(Vector3::new(1.0, 0.0, 0.0), na::zero());
-    let ball_pos_disjoint      = Isometry3::new(Vector3::new(3.0, 0.0, 0.0), na::zero());
-
-    let dist_intersecting = query::distance(&ball_pos_intersecting, &ball,
-                                            &cuboid_pos,            &cuboid);
-    let dist_disjoint     = query::distance(&ball_pos_disjoint, &ball,
-                                            &cuboid_pos,        &cuboid);
-
-    assert_eq!(dist_intersecting, 0.0);
-    assert!(relative_eq!(dist_disjoint, 1.0, epsilon = 1.0e-7));
-}
+assert_eq!(dist_intersecting, 0.0);
+assert!(relative_eq!(dist_disjoint, 1.0, epsilon = 1.0e-7));
 ```
   </div>
 </div>
@@ -441,9 +437,9 @@ parameter set to `1.0`.
 <ul class="nav nav-tabs">
   <li class="active"><a id="tab_nav_link" data-toggle="tab" href="#contact_query_2D">2D example</a></li>
   <li><a id="tab_nav_link" data-toggle="tab" href="#contact_query_3D">3D example</a></li>
-  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/contact_query3d.rs')"></div>
+  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide3d/examples/contact_query3d.rs')"></div>
   <div class="sp"></div>
-  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/contact_query2d.rs')"></div>
+  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide2d/examples/contact_query2d.rs')"></div>
 </ul>
 
 <div class="tab-content" markdown="1">
@@ -527,9 +523,9 @@ The following example depicts the three possible scenarios:
 <ul class="nav nav-tabs">
   <li class="active"><a id="tab_nav_link" data-toggle="tab" href="#time_of_impact_2D">2D example</a></li>
   <li><a id="tab_nav_link" data-toggle="tab" href="#time_of_impact_3D">3D example</a></li>
-  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/time_of_impact_query3d.rs')"></div>
+  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide3d/examples/time_of_impact_query3d.rs')"></div>
   <div class="sp"></div>
-  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/time_of_impact_query2d.rs')"></div>
+  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide2d/examples/time_of_impact_query2d.rs')"></div>
 </ul>
 
 <div class="tab-content" markdown="1">

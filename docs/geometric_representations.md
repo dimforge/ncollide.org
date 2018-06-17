@@ -45,17 +45,12 @@ The support mapping function is exposed by the `SupportMap` trait.
 | `.support_point(m, v)`            | Computes the support point (in the direction `v`) of the caller transformed by the transformation matrix `m`. |
 | `.support_point_toward(m, v)`            | Same as `.support_point(...)` except that `v` is already a unit vector. |
 
-Most basic geometric primitives like balls, cubes, cones, and even more complex
-ones like a Minkowski Sum of convex shapes can be described by their support
+Most basic geometric primitives like balls, cubes, cones, can be described by their support
 mappings. This allows a useful level of genericity for several geometric
-queries on **ncollide**. Moreover, allogithms based on support algorithms can
-usually general enough to be able to operate on shapes embedded on a space of
-finite dimension higher than 3.
+queries on **ncollide**.
 
 ### Ball
-Mathematically speaking, the `Ball` structure describes a closed ball on the
-_n_-dimensional euclidean space. In two dimensions this is a disk, and in three
-dimensions a sphere, both centered at the origin.
+The `Ball` designs a disk in 2D, or a sphere in 3D, both centered at the origin.
 
 
 | Method | Description |
@@ -95,9 +90,9 @@ half length along each coordinate axis.
 <ul class="nav nav-tabs">
   <li class="active"><a id="tab_nav_link" data-toggle="tab" href="#cuboid_2D">2D example</a></li>
   <li><a id="tab_nav_link" data-toggle="tab" href="#cuboid_3D">3D example</a></li>
-  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/cuboid3d.rs')"></div>
+  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide3d/examples/cuboid3d.rs')"></div>
   <div class="sp"></div>
-  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/cuboid2d.rs')"></div>
+  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide2d/examples/cuboid2d.rs')"></div>
 </ul>
 
 <div class="tab-content" markdown="1">
@@ -248,9 +243,9 @@ The `ConvexPolygon` (in 2D) and `ConvexHull` shape (in 3D) are created from a se
   <li class="active"><a id="tab_nav_link" data-toggle="tab" href="#convex_2D">2D example</a></li>
   <li><a id="tab_nav_link" data-toggle="tab" href="#convex_3D">3D example</a></li>
 
-  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/convex3d.rs')"></div>
+  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide3d/examples/convex3d.rs')"></div>
   <div class="sp"></div>
-  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/convex2d.rs')"></div>
+  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide2d/examples/convex2d.rs')"></div>
 </ul>
 
 <div class="tab-content" markdown="1">
@@ -293,9 +288,9 @@ If you have the ability to provide the convex hull directly, you may use `::try_
   <li class="active"><a id="tab_nav_link" data-toggle="tab" href="#convex_try_new_2D">2D example</a></li>
   <li><a id="tab_nav_link" data-toggle="tab" href="#convex_try_new_3D">3D example</a></li>
 
-  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/convex_try_new3d.rs')"></div>
+  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide3d/examples/convex_try_new3d.rs')"></div>
   <div class="sp"></div>
-  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/convex_try_new2d.rs')"></div>
+  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide2d/examples/convex_try_new2d.rs')"></div>
 </ul>
 
 <div class="tab-content" markdown="1">
@@ -351,14 +346,14 @@ Keep in mind that while those constructors will fail if the topology of the conv
 
 **ncollide** supports shapes that are defined as aggregations of others. Every
 composite shape must implement the `CompositeShape` trait which defines methods
-for accessing their individual parts using indices. The composite is assumed to
+for accessing their individual parts using indices. The composite shape is assumed to
 be immutable, i.e., an index must always map to a shape and local
-transformation that both remain constant over time. However, the actual range
-of index values is implementation-defined and does not even have to be
-contiguous nor finite.
+transformation that both remain constant over time. The indices must be contiguous
+and on the range $[0, shape.nparts()[$
 
 | Method | Description |
 | --          | --        |
+| `.nparts()` | The number of parts on this compound shape. |
 | `.map_part_at(i, f)` | Applies the closure `f` to the `i`-th part and its local transformation matrix. |
 | `.map_transformed_part_at(i, m, f)` | Applies the closure `f` to the `i`-th part and its local transformation matrix with `m` appended to it. |
 | `.aabb_at(i)` | The `AABB` of the `i`-th part of the composite shape. |
@@ -391,9 +386,9 @@ Two steps are necessary to create a `Compound`:
   <li class="active"><a id="tab_nav_link" data-toggle="tab" href="#compound_2D">2D example</a></li>
   <li><a id="tab_nav_link" data-toggle="tab" href="#compound_3D">3D example</a></li>
 
-  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/compound3d.rs')"></div>
+  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide3d/examples/compound3d.rs')"></div>
   <div class="sp"></div>
-  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/compound2d.rs')"></div>
+  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide2d/examples/compound2d.rs')"></div>
 </ul>
 
 <div class="tab-content" markdown="1">
@@ -451,74 +446,111 @@ assert!(compound.shapes().len() == 3)
 
 -----------
 
-### Polyline and TriMesh
-The `Polyline` and `TriMesh` structures describe a set of segments and a mesh
-of triangles. They are constructed from shared arrays of vertices and indices.
-Each segment (resp. triangle) is identified by two (resp. three) indices. It is
-also possible to provide one normal and one texture coordinate per vertex;
-those are not used for contact determination but are useful for, e.g.,
-ray-tracing applications.
+### Polyline
+The `Polyline` structure describes a set of contiguous segments.
+It is constructed from arrays of vertices, each vertex being linked
+to its adjacent elements on this array.
 
 | Method | Description |
 | --          | --       |
 | `.vertices()` | The vertex buffer. |
-| `.indices()` | The index  buffer.  |
-| `.normals()` | The normal buffer. |
-| `.uvs()` | The texture coordinates buffer. |
 | `.bounding_volumes()` | The bounding volume of each primitive (segment or triangle). |
-| `.bvt()` | The space-partitioning acceleration structure used by the mesh. |
+| `.bvt()` | The space-partitioning acceleration structure used by the polyline. |
 
 
 <ul class="nav nav-tabs">
-  <li class="active"><a id="tab_nav_link" data-toggle="tab" href="#mesh_2D">2D example</a></li>
-  <li><a id="tab_nav_link" data-toggle="tab" href="#mesh_3D">3D example</a></li>
+  <li class="active"><a id="tab_nav_link" data-toggle="tab" href="#polyline_2D">2D example</a></li>
+  <li><a id="tab_nav_link" data-toggle="tab" href="#polyline_3D">3D example</a></li>
 
-  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/mesh3d.rs')"></div>
+  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide3d/examples/polyline3d.rs')"></div>
   <div class="sp"></div>
-  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/mesh2d.rs')"></div>
+  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide2d/examples/polyline2d.rs')"></div>
 </ul>
 
 <div class="tab-content" markdown="1">
-  <div id="mesh_2D" class="tab-pane in active">
+  <div id="polyline_2D" class="tab-pane in active">
 ```rust
-let points = vec!(
-    Point2::new(0.0, 1.0),  Point2::new(-1.0, -1.0),
-    Point2::new(0.0, -0.5), Point2::new(1.0, -1.0));
-
-let indices = vec!(Point2::new(0usize, 1),
-                   Point2::new(1, 2),
-                   Point2::new(2, 3),
-                   Point2::new(3, 1));
+let points = vec![
+    Point2::new(0.0, 1.0),
+    Point2::new(-1.0, -1.0),
+    Point2::new(0.0, -0.5),
+    Point2::new(1.0, -1.0),
+    Point2::new(0.0, 1.0), // This forms a loop.
+];
 
 // Build the polyline.
-let polyline = Polyline::new(Arc::new(points), Arc::new(indices), None, None);
+let polyline = Polyline::new(points);
 
 assert!(polyline.vertices().len() == 4);
 ```
   </div>
-  <div id="mesh_3D" class="tab-pane">
+  <div id="polyline_3D" class="tab-pane">
 ```rust
-let points = vec!(
-    Point3::new(0.0, 1.0, 0.0), Point3::new(-1.0, -0.5, 0.0),
-    Point3::new(0.0, -0.5, -1.0), Point3::new(1.0, -0.5, 0.0));
+let points = vec![
+    Point3::new(0.0, 1.0, 0.0),
+    Point3::new(-1.0, -1.0, 1.0),
+    Point3::new(0.0, -0.5, 0.0),
+    Point3::new(1.0, -1.0, -1.0),
+    Point3::new(0.0, 1.0, 0.0), // This forms a loop.
+];
 
-let indices = vec!(Point3::new(0usize, 1, 2),
-                   Point3::new(0, 2, 3),
-                   Point3::new(0, 3, 1));
+// Build the polyline.
+let polyline = Polyline::new(points);
 
-// Build the mesh.
-let mesh = TriMesh::new(Arc::new(points), Arc::new(indices), None, None);
-
-assert!(mesh.vertices().len() == 4);
+assert!(polyline.vertices().len() == 5);
 ```
 </div>
 </div>
 
 <center>
-![2D mesh](../img/mesh2d.png)
-![3D mesh](../img/mesh3d.png)
+![2D polyline](../img/polyline2d.png)
 </center>
 
+## TriMesh
+The `TriMesh` structure is only available in 3D and describes a mesh
+of triangles. It is constructed from arrays of vertices and indices
+describing its triangles. It is also possible to provide one texture coordinate per vertex;
+those are not used for contact determination but are useful for, e.g., ray-tracing applications.
+
+| Method | Description |
+| --          | --       |
+| `.vertices()` | The vertex buffer. |
+| `.indices()` | The index  buffer of a `TriMesh`.  |
+| `.uvs()` | The texture coordinates buffer. |
+| `.bounding_volumes()` | The bounding volume of each triangle. |
+| `.bvt()` | The space-partitioning acceleration structure used by the mesh. |
+
+
+<ul class="nav nav-tabs">
+  <li class="active"><a id="tab_nav_link" data-toggle="tab" href="#mesh_3D">3D example</a></li>
+  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide3d/examples/mesh3d.rs')"></div>
+</ul>
+
+  <div id="mesh_3D" class="tab-pane">
+```rust
+let points = vec![
+    Point3::new(0.0, 1.0, 0.0),
+    Point3::new(-1.0, -0.5, 0.0),
+    Point3::new(0.0, -0.5, -1.0),
+    Point3::new(1.0, -0.5, 0.0),
+];
+
+let indices = vec![
+    Point3::new(0usize, 1, 2),
+    Point3::new(0, 2, 3),
+    Point3::new(0, 3, 1),
+];
+
+// Build the mesh.
+let mesh = TriMesh::new(points, indices, None);
+
+assert!(mesh.vertices().len() == 4);
+```
+</div>
+
+<center>
+![3D mesh](../img/mesh3d.png)
+</center>
 # Other shapes
 Some shapes do not fall into any of the general categories described above.
 
@@ -536,9 +568,9 @@ _inside_ of it. Other points are _outside_ of the plane.
   <li class="active"><a id="tab_nav_link" data-toggle="tab" href="#plane_2D">2D example</a></li>
   <li><a id="tab_nav_link" data-toggle="tab" href="#plane_3D">3D example</a></li>
 
-  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/plane3d.rs')"></div>
+  <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide3d/examples/plane3d.rs')"></div>
   <div class="sp"></div>
-  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/plane2d.rs')"></div>
+  <div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide2d/examples/plane2d.rs')"></div>
 </ul>
 
 <div class="tab-content" markdown="1">
@@ -583,13 +615,16 @@ more than a `Shape` trait-object wrapped into an `Arc`.
 
 | Method                    | Description |
 |--                         | --          |
-| `.aabb(m: &M)`            | The AABB of the shape transformed by `m`.            |
-| `.bounding_sphere(m: &M)` | The bounding sphere of the shape transformed by `M`. |
+| `.aabb(m: &Isometry<N>)`            | The AABB of the shape transformed by `m`.            |
+| `.bounding_sphere(m: &Isometry<N>)` | The bounding sphere of the shape transformed by `m`. |
+| `.subshape_transform(i: usize)` | If the shape is composite, the local transform of its `i`-th part. |
 | `.as_ray_cast()`          | Converts `self` to a `RayCast` trait-object.         |
 | `.as_point_query()`       | Converts `self` to a `PointQuery` trait-object.      |
+| `.as_convex_polyhedron()` | Converts `self` to a `ConvexPolyhedron` trait-object. |
 | `.as_support_map()`       | Converts `self` to a `SupportMap` trait-object.      |
 | `.as_composite_shape()`   | Converts `self` to a `CompositeShape` trait-object.   |
 | `.is_support_map()`       | Returns `true` if this shape has a support-mapping.  |
+| `.is_convex_polyhedron()` | Returns `true` if this shape has a `ConvexPolyhedron` representation. |
 | `.is_composite_shape()`   | Returns `true` if this shape is a composite shape.   |
 
 All the conversion methods have a default implementation returning `None`.
@@ -606,7 +641,7 @@ less used so by default they are deduced from the AABB itself. Those default
 implementations will unfortunately only result in very loose bounding volumes
 so it is advised to provide your own to ensure optimal performances.
 
-### Custom support mapping <div class="btn-primary" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/custom_support_map.rs')"></div>
+### Custom support mapping <div class="btn-primary" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide2d/examples/custom_support_map.rs')"></div>
 In this section we detail an example to define your own support-mapped shape
 suitable to be wrapped into a `ShapeHandle`. Too keep the maths simple, we will
 define a 2-dimensional ellipse centered at the origin with radii $a$ and $b$:
@@ -648,18 +683,22 @@ Now, we only have to code this into a `SupportMap` implementation for our
 `Ellipse`.
 
 ```rust
-impl SupportMap<Point2<f32>, Isometry2<f32>> for Ellipse {
+impl SupportMap<f32> for Ellipse {
     fn support_point(&self, transform: &Isometry2<f32>, dir: &Vector2<f32>) -> Point2<f32> {
         // Bring `dir` into the ellipse's local frame.
         let local_dir = transform.inverse_transform_vector(dir);
 
         // Compute the denominator.
-        let denom = f32::sqrt(local_dir.x * local_dir.x * self.a * self.a +
-                              local_dir.y * local_dir.y * self.b * self.b);
+        let denom = f32::sqrt(
+            local_dir.x * local_dir.x * self.a * self.a
+                + local_dir.y * local_dir.y * self.b * self.b,
+        );
 
         // Compute the support point into the ellipse's local frame.
-        let local_support_point = Point2::new(self.a * self.a * local_dir.x / denom,
-                                              self.b * self.b * local_dir.y / denom);
+        let local_support_point = Point2::new(
+            self.a * self.a * local_dir.x / denom,
+            self.b * self.b * local_dir.y / denom,
+        );
 
         // Return the support point transformed back into the global frame.
         *transform * local_support_point
@@ -675,13 +714,13 @@ dispatch mechanism of **ncollide**, we have to implement the `Shape` trait
 providing at least an AABB and a conversion to the `SupportMap` trait-object:
 
 ```rust
-impl Shape<Point2<f32>, Isometry2<f32>> for Ellipse {
-    fn aabb(&self, m: &Isometry2<f32>) -> AABB2<f32> {
+impl Shape<f32> for Ellipse {
+    fn aabb(&self, m: &Isometry2<f32>) -> AABB<f32> {
         // Generic method to compute the aabb of a support-mapped shape.
         bounding_volume::support_map_aabb(m, self)
     }
 
-    fn as_support_map(&self) -> Option<&SupportMap2<f32>> {
+    fn as_support_map(&self) -> Option<&SupportMap<f32>> {
         Some(self)
     }
 }
@@ -697,21 +736,21 @@ our own ellipse:
 
 ```rust
 let ellipse = Ellipse { a: 2.0f32, b: 1.0 };
-let cuboid  = Cuboid::new(Vector2::new(1.0, 1.0));
+let cuboid = Cuboid::new(Vector2::new(1.0, 1.0));
 
 let ellipse_pos = na::one();
-let cuboid_pos  = Isometry2::new(Vector2::new(4.0, 0.0), na::zero());
+let cuboid_pos = Isometry2::new(Vector2::new(4.0, 0.0), na::zero());
 
 let dist = query::distance(&ellipse_pos, &ellipse, &cuboid_pos, &cuboid);
 let prox = query::proximity(&ellipse_pos, &ellipse, &cuboid_pos, &cuboid, 0.0);
 let ctct = query::contact(&ellipse_pos, &ellipse, &cuboid_pos, &cuboid, 0.0);
 
-assert!(na::approx_eq(&dist, &1.0));
+assert!(relative_eq!(dist, 1.0, epsilon = 1.0e-6));
 assert_eq!(prox, Proximity::Disjoint);
 assert!(ctct.is_none());
 ```
 
-### Custom composite shape <div class="btn-primary" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/examples/custom_composite_shape.rs')"></div>
+### Custom composite shape <div class="btn-primary" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/build/ncollide2d/examples/custom_composite_shape.rs')"></div>
 In this section we detail an example to define your own composite shape
 suitable to be wrapped into a `ShapeHandle`.  We will define a simple 2D
 cross-shaped object with only two part:
@@ -730,46 +769,44 @@ needed by the user. Only the acceleration structure will be precomputed.
 
 ```rust
 struct CrossedCuboids {
-    bvt: BVT<usize, AABB2<f32>>
+    bvt: BVT<usize, AABB<f32>>,
 }
 
 impl CrossedCuboids {
     pub fn new() -> CrossedCuboids {
         // The shape indices paired with their corresponding AABBs.
         // Nedded to initialize the acceleration structure.
-        let aabbs = vec! [
+        let aabbs = vec![
             (0, CrossedCuboids::generate_aabb(0)),
-            (1, CrossedCuboids::generate_aabb(1))
+            (1, CrossedCuboids::generate_aabb(1)),
         ];
 
         CrossedCuboids {
-            bvt: BVT::new_balanced(aabbs)
+            bvt: BVT::new_balanced(aabbs),
         }
     }
 
     // Helper function to generate the AABB bounding the i-th cuboid.
-    fn generate_aabb(i: usize) -> AABB2<f32> {
+    fn generate_aabb(i: usize) -> AABB<f32> {
         if i == 0 {
             // The AABB for the horizontal cuboid.
-            AABB2::new(Point2::new(-1.0, 0.0), Point2::new(3.0, 2.0))
-        }
-        else {
+            AABB::new(Point2::new(-1.0, 0.0), Point2::new(3.0, 2.0))
+        } else {
             // The AABB for the vertical cuboid.
-            AABB2::new(Point2::new(0.0, -1.0), Point2::new(2.0, 3.0))
+            AABB::new(Point2::new(0.0, -1.0), Point2::new(2.0, 3.0))
         }
     }
 
     // Helper function to generate the i-th cuboid.
-    fn generate_cuboid(i: usize) -> Cuboid2<f32> {
+    fn generate_cuboid(i: usize) -> Cuboid<f32> {
         if i == 0 {
             // Create a 4x2 cuboid. Remember that we must provide the
             // half-lengths.
-            Cuboid2::new(Vector2::new(2.0, 1.0))
-        }
-        else {
+            Cuboid::new(Vector2::new(2.0, 1.0))
+        } else {
             // Create a 2x4 cuboid. Remember that we must provide the
             // half-lengths.
-            Cuboid2::new(Vector2::new(1.0, 2.0))
+            Cuboid::new(Vector2::new(1.0, 2.0))
         }
     }
 }
@@ -778,8 +815,13 @@ impl CrossedCuboids {
 Now we have to implement the `CompositeShape` trait.
 
 ```rust
-impl CompositeShape<Point2<f32>, Isometry2<f32>> for CrossedCuboids {
-    fn map_part_at(&self, i: usize, f: &mut FnMut(&Isometry2<f32>, &Shape2<f32>)) {
+
+impl CompositeShape<f32> for CrossedCuboids {
+    fn nparts(&self) -> usize {
+        2
+    }
+
+    fn map_part_at(&self, i: usize, f: &mut FnMut(usize, &Isometry2<f32>, &Shape<f32>)) {
         // The translation needed to center the cuboid at the point (1, 1).
         let transform = Isometry2::new(Vector2::new(1.0, 1.0), na::zero());
 
@@ -787,13 +829,15 @@ impl CompositeShape<Point2<f32>, Isometry2<f32>> for CrossedCuboids {
         let cuboid = CrossedCuboids::generate_cuboid(i);
 
         // Call the function.
-        f(&transform, &cuboid)
+        f(i, &transform, &cuboid)
     }
 
-    fn map_transformed_part_at(&self,
-                               i: usize,
-                               m: &Isometry2<f32>,
-                               f: &mut FnMut(&Isometry2<f32>, &Shape2<f32>)) {
+    fn map_transformed_part_at(
+        &self,
+        i: usize,
+        m: &Isometry2<f32>,
+        f: &mut FnMut(usize, &Isometry2<f32>, &Shape<f32>),
+    ) {
         // Prepend the translation needed to center the cuboid at the point (1, 1).
         let transform = m * Translation2::new(1.0, 1.0);
 
@@ -801,15 +845,15 @@ impl CompositeShape<Point2<f32>, Isometry2<f32>> for CrossedCuboids {
         let cuboid = CrossedCuboids::generate_cuboid(i);
 
         // Call the function.
-        f(&transform, &cuboid)
+        f(i, &transform, &cuboid)
     }
 
-    fn aabb_at(&self, i: usize) -> AABB2<f32> {
+    fn aabb_at(&self, i: usize) -> AABB<f32> {
         // Compute the i-th AABB.
         CrossedCuboids::generate_aabb(i)
     }
 
-    fn bvt(&self) -> &BVT<usize, AABB2<f32>> {
+    fn bvt(&self) -> &BVT<usize, AABB<f32>> {
         // Reference to the acceleration structure.
         &self.bvt
     }
@@ -823,14 +867,16 @@ complete integration, we have to implement the `Shape` trait providing at least
 an AABB and a conversion to the `CompositeShape` trait-object:
 
 ```rust
-impl Shape<Point2<f32>, Isometry2<f32>> for CrossedCuboids {
-    fn aabb(&self, m: &Isometry2<f32>) -> AABB2<f32> {
+impl Shape<f32> for CrossedCuboids {
+    fn aabb(&self, m: &Isometry2<f32>) -> AABB<f32> {
         // This is far from an optimal AABB.
-        AABB2::new(m.translation * Point2::new(-10.0, -10.0),
-                   m.translation * Point2::new(10.0, 10.0))
+        AABB::new(
+            m.translation * Point2::new(-10.0, -10.0),
+            m.translation * Point2::new(10.0, 10.0),
+        )
     }
 
-    fn as_composite_shape(&self) -> Option<&CompositeShape2<f32>> {
+    fn as_composite_shape(&self) -> Option<&CompositeShape<f32>> {
         Some(self)
     }
 }
@@ -845,17 +891,17 @@ some pairwise [geometric queries](../geometric_queries/#pairwise-queries)
 involving our own composite shape:
 
 ```rust
-let ellipse = Ellipse { a: 2.0f32, b: 1.0 };
-let cuboid  = Cuboid::new(Vector2::new(1.0, 1.0));
+let cross = CrossedCuboids::new();
+let cuboid = Cuboid::new(Vector2::new(1.0, 1.0));
 
-let ellipse_pos = na::one();
-let cuboid_pos  = Isometry2::new(Vector2::new(4.0, 0.0), na::zero());
+let cross_pos = na::one();
+let cuboid_pos = Isometry2::new(Vector2::new(6.0, 0.0), na::zero());
 
-let dist = query::distance(&ellipse_pos, &ellipse, &cuboid_pos, &cuboid);
-let prox = query::proximity(&ellipse_pos, &ellipse, &cuboid_pos, &cuboid, 0.0);
-let ctct = query::contact(&ellipse_pos, &ellipse, &cuboid_pos, &cuboid, 0.0);
+let dist = query::distance(&cross_pos, &cross, &cuboid_pos, &cuboid);
+let prox = query::proximity(&cross_pos, &cross, &cuboid_pos, &cuboid, 0.0);
+let ctct = query::contact(&cross_pos, &cross, &cuboid_pos, &cuboid, 0.0);
 
-assert!(relative_eq!(dist, 1.0, epsilon = 1.0e-6));
+assert!(relative_eq!(dist, 2.0));
 assert_eq!(prox, Proximity::Disjoint);
 assert!(ctct.is_none());
 ```
