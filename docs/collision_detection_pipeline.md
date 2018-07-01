@@ -636,7 +636,7 @@ possible proximity statuses:
 2. `Proximity::WithinMargin` indicates two collision objects are not touching, but are separated by a distance smaller than the sum of tolerances specified by the `GeometricQueryType::Proximity(...)` given to each collision object at initialization.
 3. `Proximity::Disjoint` indicates two collision objects are no longer touching, and are too far apart to be within margins.
 
-An iterator through all contact events may be retrieved using the `.proximity_events()`
+An iterator through all proximity events may be retrieved using the `.proximity_events()`
 method of the `CollisionWorld`. This yields a `ProximityEvent` structure:
 
 | Field                | Description |
@@ -653,9 +653,6 @@ motions. Thus, the transition from, e.g., `Proximity::Intersecting` to
 necessarily triggered transitions from `::Intersecting` to `::WithinMargin` and
 then from `::WithMargin` to `::Disjoint` instead.
 
-
-An iterator through all contact events may be retrieved by the `.proximity_events()`
-method of the `CollisionWorld`.
 
 ### Contact event
 Contact events are triggered when two collision objects subject to contact
