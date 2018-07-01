@@ -137,6 +137,7 @@ The list of contributors can be found [there](https://github.com/sebcrozet/ncoll
 * Paul Houghton
 * Rick Richardson
 * Sanghyeon Seo
+* Sean Jensen-Grey
 * Simon N Heath
 * Trym Nilsen
 * Ty Overby
