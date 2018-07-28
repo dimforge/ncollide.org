@@ -99,6 +99,7 @@ The list of contributors can be found [there](https://github.com/sebcrozet/ncoll
 
 
 * 8zu
+* A
 * Adam Rzepka
 * Andreas Longva
 * Andrei Vasiliu
@@ -128,10 +129,14 @@ The list of contributors can be found [there](https://github.com/sebcrozet/ncoll
 * Kyle Gretchev
 * Kjetil Kjeka
 * Leonard Dahlmann
-* "memoryruins"
+* Maksim Ustichenko
 * Mark Stacey
+* Matthieu Pizenberg
+* memoryruins
+* moyashi
 * Nathan Flurry
 * Nerijus Arlauskas
+* Nico Orrù
 * Olivier Saut
 * Pascal
 * Paul Houghton
