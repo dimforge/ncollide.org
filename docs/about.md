@@ -108,6 +108,7 @@ The list of contributors can be found [there](https://github.com/sebcrozet/ncoll
 * Alexandre Chêne
 * Andre Braga Reis
 * Camille Viot
+* Casey Primozic
 * Casey Rodarmor
 * Connor McCluskey
 * Danny Fritz
@@ -133,6 +134,7 @@ The list of contributors can be found [there](https://github.com/sebcrozet/ncoll
 * Mark Stacey
 * Matthieu Pizenberg
 * memoryruins
+* Michael Carpenter
 * moyashi
 * Nathan Flurry
 * Nerijus Arlauskas
