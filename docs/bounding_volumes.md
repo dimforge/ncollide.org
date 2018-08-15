@@ -362,7 +362,7 @@ traversals are available depending on your needs:
    visitor implementing the `BVTVisitor` trait. An example of application of
    depth-first traversal is the search for all nodes intersecting a given
    bounding volume.
-2. **Best-first traversal** with `.best_fisrt_search(...)` controlled by a
+2. **Best-first traversal** with `.best_first_search(...)` controlled by a
    user-defined cost function implementing the `BVTCostFn` trait. An example of
    application of best-first traversals is ray-tracing where you are only
    interested in the closest ray intersection. Best-first traversals are
