@@ -97,21 +97,23 @@ For one-time donations, you may use PayPal (with or without an account):
 The list of contributors can be found [there](https://github.com/sebcrozet/ncollide/graphs/contributors). Here are additional contributors, including Patrons:
 
 
-
 * 8zu
 * A
 * Adam Rzepka
 * Andreas Longva
 * Andrei Vasiliu
 * Anselm Eickhoff
+* Alain Cuvillier
 * Alexander Atman
 * Alexandre Chêne
 * Andre Braga Reis
 * Camille Viot
 * Casey Primozic
 * Casey Rodarmor
+* Chris Heyes
 * Connor McCluskey
 * Danny Fritz
+* Eduard Knyshov
 * Erlend Sogge Heggen
 * Florian Hanke
 * Frederic Wagner
@@ -137,8 +139,11 @@ The list of contributors can be found [there](https://github.com/sebcrozet/ncoll
 * Michael Carpenter
 * moyashi
 * Nathan Flurry
+* Nathaniel Pisarski
 * Nerijus Arlauskas
 * Nico Orrù
+* Nicholas Farley
+* Nifker
 * Olivier Saut
 * Pascal
 * Paul Houghton
