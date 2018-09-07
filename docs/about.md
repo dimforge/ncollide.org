@@ -8,9 +8,9 @@
 <td id="nostyle_table">
 As of today, this website and the **ncollide** project are mostly developed by
 Sébastien Crozet (aka.  [sebcrozet](https://github.com/sebcrozet)), a French
-Ph.D Student. His researches are about finding new methods to perform fast
-collision detection between complex CAD models that include smooth trimmed
-surfaces like NURBS.  Besides his fulltime job, he works on **ncollide** trying
+R&D engineer with a Ph.D about fast
+collision detection between complex smooth CAD models without using tessellations.
+Besides his part-time job, he works on **ncollide** trying
 to help making Rust a great language for the development of real-time
 geometry-intensive applications. For more information about his professional
 background, check out his
