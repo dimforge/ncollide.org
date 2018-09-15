@@ -2,7 +2,7 @@
 
 This lists the change brought by all major releases. The corresponding source
 code may be found based on tags on
-[github](https://github.com/sebcrozet/ncollide/releases).
+[github](https://github.com/rustsim/ncollide/releases).
 
 ### Version 0.14.0
 #### Added

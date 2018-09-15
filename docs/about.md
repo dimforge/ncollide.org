@@ -28,7 +28,7 @@ Contribution are greatly appreciated and can be technical as well as financial.
 
 You are of course welcome to contribute to the source code of **ncollide** and
 to this website. Simply make sure to [open an
-issue](https://github.com/sebcrozet/ncollide/issues) on GitHub if you intend to
+issue](https://github.com/rustsim/ncollide/issues) on GitHub if you intend to
 perform a large contribution. This should prevent other people from stepping
 silently on your toes and ensure your work is going to be merged when it is
 ready.
@@ -40,13 +40,13 @@ You can contribute to this website by completing, improving, and correcting
 it. Do not hesitate to correct even the smallest, insignificant detail
 (especially English mistakes, including typography). We love nitpicking!  This
 website is composed of a set of markdown files located on the
-[ncollide.org](https://github.com/sebcrozet/ncollide.org) repository. It is compiled using
+[ncollide.org](https://github.com/rustsim/ncollide.org) repository. It is compiled using
 [MkDocs v0.17.3](http://www.mkdocs.org/). As explained in the next section,
 you need to fork, fix, and create a pull request to make your contribution
 integrable into our code base. There are no
 specific rules, except that all compilable code to generate illustrations must
 be located on the `src` folder.  Downloadable examples have to be located on
-the `examples` directory of the main project, i.e., on the [ncollide](https://github.com/sebcrozet/ncollide)
+the `examples` directory of the main project, i.e., on the [ncollide](https://github.com/rustsim/ncollide)
 repository.
 
 
@@ -54,7 +54,7 @@ repository.
 
 If you intend to work on the source code of **ncollide**, you should start by
 [forking](https://help.github.com/articles/fork-a-repo) the
-[repository](https://github.com/sebcrozet/ncollide). Once you are done making
+[repository](https://github.com/rustsim/ncollide). Once you are done making
 modifications to your own copy of **ncollide**, you have to [create a pull
 request](https://help.github.com/articles/creating-a-pull-request) targeting
 the **master** branch so that your contribution can be reviewed, commented, and
@@ -67,7 +67,7 @@ Donations made to the lead developer are also appreciated. However, do not
 forget that **donating is not a requirement**. You are and will always be free
 to use **ncollide** for any purpose, including commercial applications, without
 paying anything (see the [BSD-3
-licence](https://github.com/sebcrozet/ncollide/blob/master/LICENSE)). Recurrent
+licence](https://github.com/rustsim/ncollide/blob/master/LICENSE)). Recurrent
 donations, even the smallest, are the best way to encourage the dedication of a
 significant amount of time for open source activities. You may use Patreon (first
 button, monthly donations only) or Liberapay (second button, weekly, monthly, or
@@ -94,7 +94,7 @@ For one-time donations, you may use PayPal (with or without an account):
 
 # Contributors
 
-The list of contributors can be found [there](https://github.com/sebcrozet/ncollide/graphs/contributors). Here are additional contributors, including Patrons:
+The list of contributors can be found [there](https://github.com/rustsim/ncollide/graphs/contributors). Here are additional contributors, including Patrons:
 
 
 * 8zu
@@ -176,5 +176,5 @@ The list of contributors can be found [there](https://github.com/sebcrozet/ncoll
 
 If your name should or should not be on this list, or if it should be linked
 with another website, please send an [email](mailto:developer@crozet.re) or
-open an issue on [GitHub](https://github.com/sebcrozet/ncollide/issues).
+open an issue on [GitHub](https://github.com/rustsim/ncollide/issues).
 
