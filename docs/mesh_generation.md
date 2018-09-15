@@ -189,7 +189,7 @@ Besides the `ToTriMesh` and `ToLinestrip` traits, the `procedural` and
 line strips, including those accessible by the two former traits.
 
 It also exposes functions to compute the convex hull of a set of point using
-the [QuickHull algorithm](http://en.wikipedia.org/wiki/QuickHull) which has an
+the [QuickHull algorithm](https://en.wikipedia.org/wiki/QuickHull) which has an
 average $O(n \log{n})$ time complexity:
 
 | Function            | Description                                     |
@@ -255,7 +255,7 @@ object as the union of two convex parts:
 But decomposing manually a concave polyhedra into its convex parts is a very
 tedious task and computing an exact convex decomposition is often not
 necessary. That is why **ncollide** implements the 3D
-[HACD](http://kmamou.blogspot.fr/2011/10/hacd-hierarchical-approximate-convex.html)
+[HACD](https://kmamou.blogspot.fr/2011/10/hacd-hierarchical-approximate-convex.html)
 algorithm that computes an **approximate** convex decomposition. It is not yet
 implemented in 2D.
 
@@ -312,7 +312,7 @@ the HACD algorithm (middle), and the resulting approximate convex decomposition
 The following example creates a concave object using a
 [path-based](#paths) mesh generation and approximates it
 using the HACD algorithm. Together with
-[kiss3d](http://github.com/sebcrozet/kiss3d), this code was used to generate
+[kiss3d](https://github.com/sebcrozet/kiss3d), this code was used to generate
 the figure above.
 
 <ul class="nav nav-tabs">

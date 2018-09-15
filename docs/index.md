@@ -4,8 +4,8 @@
 <br/>
 <center>
 [![Travis.ci Status](https://travis-ci.org/sebcrozet/ncollide.svg?branch=master)](https://travis-ci.org/sebcrozet/ncollide)
-[![Crates.io Status](http://meritbadge.herokuapp.com/ncollide3d)](https://crates.io/crates/ncollide3d)
-[![License (3-Clause BSD)](https://img.shields.io/badge/license-BSD%203--Clause-blue.svg?style=flat)](http://opensource.org/licenses/BSD-3-Clause)
+[![Crates.io Status](https://meritbadge.herokuapp.com/ncollide3d)](https://crates.io/crates/ncollide3d)
+[![License (3-Clause BSD)](https://img.shields.io/badge/license-BSD%203--Clause-blue.svg?style=flat)](https://opensource.org/licenses/BSD-3-Clause)
 
 -----
 
@@ -165,18 +165,18 @@
 
 ## Demonstrations
 
-<big>[**nphysics**](http://nphysics.org)</big> − a 2D and 3D physics engine
-available on [crates.io](http://crates.io) as the `nphysics2d` and `nphysics3d`
+<big>[**nphysics**](https://nphysics.org)</big> − a 2D and 3D physics engine
+available on [crates.io](https://crates.io) as the `nphysics2d` and `nphysics3d`
 crates.  It completely relies on **ncollide** for contact points computation
 and proximity detection. It has at least one example per collision detection
 algorithm provided by **ncollide**.
 <p>
 <center>
-<iframe class="youtube_video" width="560" height="315" src="http://www.youtube.com/embed/CANjXZ5rocI" frameborder="0" allowfullscreen></iframe>
+<iframe class="youtube_video" width="560" height="315" src="https://www.youtube.com/embed/CANjXZ5rocI" frameborder="0" allowfullscreen></iframe>
 </center>
 </p>
-<big>[**kiss3d**](http://kiss3d.org)</big> − a simplistic 3d graphics engine
-available on [crates.io](http://crates.io). It relies on mesh generation to
+<big>[**kiss3d**](https://kiss3d.org)</big> − a simplistic 3d graphics engine
+available on [crates.io](https://crates.io). It relies on mesh generation to
 render everything that is not triangular (sphere, cone, Bézier surfaces, etc.)
 In particular it has a
 [demo](https://github.com/sebcrozet/kiss3d/blob/master/examples/procedural.rs)

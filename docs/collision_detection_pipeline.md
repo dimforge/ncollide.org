@@ -354,10 +354,10 @@ with three fields:
 | `id`        | A unique identifier associated with this contact. `ncollide` will automatically track contact points between updates. A contact that moved between two frames will have the same `id` as in the previous frame. |
 
 The `kinematic` field provides an approximation of contact kinematic around those contact point.
-In other words, the corresponding [`ContactKinematic`](http://ncollide.org/rustdoc/ncollide3d/query/struct.ContactKinematic.html) provides:
+In other words, the corresponding [`ContactKinematic`](https://ncollide.org/rustdoc/ncollide3d/query/struct.ContactKinematic.html) provides:
 
-1. A way of updating the contact location after the touching solids moved. The result of this update is approximate but very accurate if the solids did not move too much. Use the [`.contact(...)`](http://ncollide.org/rustdoc/ncollide3d/query/struct.ContactKinematic.html#method.contact) method to retrieve new contacts given the new positions of the solids.
-2. Identifiers of the features on which the contact lie (`.feature1()` and `.feature2()`). This allows you to know exactly on which vertex, edge, or face the contact points are located. Refer to the documentation of each shape for a description of the meaning of these `FeatureId`. The geometry of the corresponding vertex, edge, or face, can usually be retrieve through the [`ConvexPolyhedron`](http://ncollide.org/rustdoc/ncollide3d/shape/trait.ConvexPolyhedron.html) trait.
+1. A way of updating the contact location after the touching solids moved. The result of this update is approximate but very accurate if the solids did not move too much. Use the [`.contact(...)`](https://ncollide.org/rustdoc/ncollide3d/query/struct.ContactKinematic.html#method.contact) method to retrieve new contacts given the new positions of the solids.
+2. Identifiers of the features on which the contact lie (`.feature1()` and `.feature2()`). This allows you to know exactly on which vertex, edge, or face the contact points are located. Refer to the documentation of each shape for a description of the meaning of these `FeatureId`. The geometry of the corresponding vertex, edge, or face, can usually be retrieve through the [`ConvexPolyhedron`](https://ncollide.org/rustdoc/ncollide3d/shape/trait.ConvexPolyhedron.html) trait.
 
 # Collision world
 The `CollisionWorld` is the main interface between the user and its
@@ -670,7 +670,7 @@ at least one contact point to 0.
 In case of starting contacts, it is possible to retrieve the contacts by obtaining
 a reference to the contact algorithm with the world's `.contact_pair(handle1, handle2)`
 method. The resulting contact algorithm (a `ContactManifoldGenerator` trait-object) allows the retrieval of the computed
-contact manifolds. Refer to the [`ContactManifoldGenerator`](http://ncollide.org/rustdoc/ncollide3d/narrow_phase/trait.ContactManifoldGenerator.html)
+contact manifolds. Refer to the [`ContactManifoldGenerator`](https://ncollide.org/rustdoc/ncollide3d/narrow_phase/trait.ContactManifoldGenerator.html)
 trait.
 
 ## Example <div class="d3" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/ncollide_testbed3d/examples/bouncing_ball3d.rs')"></div><div class="sp"></div><div class="d2" onclick="window.open('https://raw.githubusercontent.com/sebcrozet/ncollide/master/ncollide_testbed2d/examples/bouncing_ball2d.rs')"></div>

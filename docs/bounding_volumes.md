@@ -206,9 +206,9 @@ static method `AABB::new(mins, maxs)`. This will fail if one component of
 `mins` is strictly greater than the corresponding component of `maxs`. The
 second one is to use the unsafe constructor `AABB::new_invalid()`. It is unsafe
 because the result AABB is invalid: its `mins` field is set to
-[Bounded::max_value()](http://rust-num.github.io/num/num/trait.Bounded.html) and
+[Bounded::max_value()](https://rust-num.github.io/num/num/trait.Bounded.html) and
 its `maxs` field is set to
-[-Bounded::max_value()](http://rust-num.github.io/num/num/trait.Bounded.html).
+[-Bounded::max_value()](https://rust-num.github.io/num/num/trait.Bounded.html).
 This is useful to initiate the merging of multiple AABB. The third construction
 method is to use the `bounding_volume.aabb(g, m)` function, where `g` and `m`
 are the shape and its position (e.g. a transformation matrix). Finally, generic

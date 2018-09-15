@@ -3,7 +3,7 @@
 <table markdown="1">
 <tr>
 <td id="nostyle_table" style="vertical-align:middle">
-<a href="https://github.com/sebcrozet"><img id="left_float_img" src="http://www.gravatar.com/avatar/24f8431a2a28f633cba972f1176921e4?s=125"></img></a>
+<a href="https://github.com/sebcrozet"><img id="left_float_img" src="https://www.gravatar.com/avatar/24f8431a2a28f633cba972f1176921e4?s=125"></img></a>
 </td>
 <td id="nostyle_table">
 As of today, this website and the **ncollide** project are mostly developed by
@@ -41,7 +41,7 @@ it. Do not hesitate to correct even the smallest, insignificant detail
 (especially English mistakes, including typography). We love nitpicking!  This
 website is composed of a set of markdown files located on the
 [ncollide.org](https://github.com/rustsim/ncollide.org) repository. It is compiled using
-[MkDocs v0.17.3](http://www.mkdocs.org/). As explained in the next section,
+[MkDocs v0.17.3](https://www.mkdocs.org/). As explained in the next section,
 you need to fork, fix, and create a pull request to make your contribution
 integrable into our code base. There are no
 specific rules, except that all compilable code to generate illustrations must

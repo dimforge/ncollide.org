@@ -13,7 +13,7 @@ objects interacting with _small_ objects) should be avoided as they are very
 prone to generate rounding errors.
 
 The recommended units are those given by the [International System of
-Units](http://en.wikipedia.org/wiki/International_System_of_Units)−that
+Units](https://en.wikipedia.org/wiki/International_System_of_Units)−that
 is−meters, kilograms, seconds, and so on. But again, it depends on your
 application!
 
@@ -63,10 +63,10 @@ name.
 
 #### Do I need some kind of permission to reuse the figures of this guide?
 
-Nope! They were all created using [Inkscape](http://www.inkscape.org/) or
-generated with [nrays](http://github.com/sebcrozet/nrays),
-[kiss3d](http://github.com/sebcrozet/kiss3d), and
-[rust-sfml](http://github.com/JeremyLetang/rust-sfml). We know how
+Nope! They were all created using [Inkscape](https://www.inkscape.org/) or
+generated with [nrays](https://github.com/sebcrozet/nrays),
+[kiss3d](https://github.com/sebcrozet/kiss3d), and
+[rust-sfml](https://github.com/JeremyLetang/rust-sfml). We know how
 time-consuming creating those kinds of illustrations can be so feel free to
 modify, publish, and redistribute them anywhere you want without asking or even
 telling anybody.

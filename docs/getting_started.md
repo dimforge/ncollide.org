@@ -1,6 +1,6 @@
 # Getting started
 **ncollide** relies on the official Rust package manager
-[Cargo](http://crates.io) for dependency resolution and compilation. Therefore,
+[Cargo](https://crates.io) for dependency resolution and compilation. Therefore,
 making **ncollide** ready to be used by your project is simply a matter of
 adding a new dependency to your `Cargo.toml` file. You can either use the **ncollide2d**
 crate for 2D geometry or the **ncollide3d** crate for 3D geometry. You can even use both
