@@ -111,6 +111,7 @@ The list of contributors can be found [there](https://github.com/rustsim/ncollid
 * Casey Primozic
 * Casey Rodarmor
 * Chris Heyes
+* Christopher Armstrong
 * Connor McCluskey
 * Danny Fritz
 * Eduard Knyshov
@@ -123,6 +124,7 @@ The list of contributors can be found [there](https://github.com/rustsim/ncollid
 * Jack Wrenn
 * Jan Nockemann
 * Jason Knight
+* Jean Mertz
 * Jeb Brooks
 * Jeff Muizelaar
 * Jeff Parsons
