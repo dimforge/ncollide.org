@@ -131,8 +131,9 @@ The list of contributors can be found [there](https://github.com/rustsim/ncollid
 * Jordan Miner
 * J. Ryan Stinnett
 * Kasper Møller Andersen
-* Kyle Gretchev
+* Kristian Fjeld Hasselknippe
 * Kjetil Kjeka
+* Kyle Gretchev
 * Leonard Dahlmann
 * Maksim Ustichenko
 * Mark Stacey
@@ -151,6 +152,7 @@ The list of contributors can be found [there](https://github.com/rustsim/ncollid
 * Paul Houghton
 * Rick Richardson
 * Sanghyeon Seo
+* Scott Beca
 * Sean Jensen-Grey
 * Simon N Heath
 * Trym Nilsen
