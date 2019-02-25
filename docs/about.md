@@ -107,6 +107,7 @@ The list of contributors can be found [there](https://github.com/rustsim/ncollid
 * Alexander Atman
 * Alexandre Chêne
 * Andre Braga Reis
+* batonius
 * Camille Viot
 * Casey Primozic
 * Casey Rodarmor
@@ -116,6 +117,7 @@ The list of contributors can be found [there](https://github.com/rustsim/ncollid
 * Damien Dubé
 * Danny Fritz
 * Eduard Knyshov
+* Embark Studios
 * Erlend Sogge Heggen
 * Florian Hanke
 * Frederic Wagner
@@ -124,15 +126,19 @@ The list of contributors can be found [there](https://github.com/rustsim/ncollid
 * Jac
 * Jack Wrenn
 * Jan Nockemann
+* Jason Hise
 * Jason Knight
 * Jean Mertz
 * Jeb Brooks
 * Jeff Muizelaar
 * Jeff Parsons
+* Jeremy Stucki
 * Johan Andersson
 * Jordan Miner
+* Joseph Catrambone
 * J. Ryan Stinnett
 * Kasper Møller Andersen
+* Kipton Barros
 * Kristian Fjeld Hasselknippe
 * Kjetil Kjeka
 * Kyle Gretchev
@@ -149,6 +155,7 @@ The list of contributors can be found [there](https://github.com/rustsim/ncollid
 * Nathaniel Pisarski
 * Nerijus Arlauskas
 * Nico Orrù
+* Nicodemus E Paradiso
 * Nicholas Farley
 * Nifker
 * Olivier Saut
@@ -158,13 +165,18 @@ The list of contributors can be found [there](https://github.com/rustsim/ncollid
 * Rafael
 * rage
 * Rick Richardson
+* Ruben Schmidmeister
 * Sanghyeon Seo
 * Scott Beca
 * Sean Jensen-Grey
+* Sebastian Waisbrot
 * Simon N Heath
+* Suddenly Corporeal
 * Thomas Niederberger
+* tdittr
 * Trym Nilsen
 * Ty Overby
+* Tyler Hallada
 * Vikentiy Fesunov
 * Wesley Wiser
 * Zane
