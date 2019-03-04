@@ -142,6 +142,7 @@ The list of contributors can be found [there](https://github.com/rustsim/ncollid
 * Kristian Fjeld Hasselknippe
 * Kjetil Kjeka
 * Kyle Gretchev
+* Leander Gilles
 * Leonard Dahlmann
 * Lucas Kent
 * Maksim Ustichenko
