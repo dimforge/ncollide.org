@@ -118,10 +118,10 @@ arbitrary
 convex shapes). The main ray-casting related data structure is the `Ray`
 itself:
 
-| Field  | Description                    |
-|--      | --                             |
-| `orig` | The ray starting point.        |
-| `dir`  | The ray propagation direction. |
+| Field    | Description                    |
+|--        | --                             |
+| `origin` | The ray starting point.        |
+| `dir`    | The ray propagation direction. |
 
 
 The result of a successful ray-cast is given by the `RayIntersection`
@@ -137,11 +137,11 @@ Recall that the exact point of intersection may be computed from the
  _time of impact_:
 
 ```rust
-let intersection_point = ray.orig + ray.dir * result.toi
+let intersection_point = ray.origin + ray.dir * result.toi
 ```
 Because `ray.dir` does not need to be normalized, a physical interpretation of
 the time of impact is the time needed for a point with velocity `ray.dir` to
-travel from the position `ray.orig` to the object.
+travel from the position `ray.origin` to the object.
 
 
 The `RayCast` trait is implemented by shapes that can be intersected by a ray:
