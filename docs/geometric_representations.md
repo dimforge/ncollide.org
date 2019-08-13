@@ -335,7 +335,7 @@ assert!(convex.points().len() == 6);
   </div>
 </div>
 
-Keep in mind that while those constructors will fail if the topology of the convex hull is invalid, or if it contains degenate faces, it does not check the convexity of the input. Therefore, `::try_new(...)` may succeed even if your input is not actually convex. In that case, you may experience odd results for various geometric queries.
+Keep in mind that while those constructors will fail if the topology of the convex hull is invalid, or if it contains degenerate faces, it does not check the convexity of the input. Therefore, `::try_new(...)` may succeed even if your input is not actually convex. In that case, you may experience odd results for various geometric queries.
 
 <center>
 ![2D convex](../img/convex2d.png)
