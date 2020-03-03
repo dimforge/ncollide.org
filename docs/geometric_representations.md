@@ -35,7 +35,7 @@ $$
  $\mathbf u$ and $\mathbf v$:
 
 <center>
-![Support function](../img/support_fun_simple.svg)
+![Support function](/img/support_fun_simple.svg)
 </center>
 
 The support mapping function is exposed by the `SupportMap` trait.
@@ -72,8 +72,8 @@ assert!(ball.radius() == 1.0);
 </div>
 
 <center>
-![2D ball](../img/ball2d.png)
-![3D ball](../img/ball3d.png)
+![2D ball](/img/ball2d.png)
+![3D ball](/img/ball3d.png)
 </center>
 
 -----------
@@ -116,8 +116,8 @@ assert!(cuboid.half_extents().z == 3.0);
 </div>
 
 <center>
-![2D cuboid](../img/cuboid2d.png)
-![3D cuboid](../img/cuboid3d.png)
+![2D cuboid](/img/cuboid2d.png)
+![3D cuboid](/img/cuboid3d.png)
 </center>
 
 
@@ -149,7 +149,7 @@ assert!(cylinder.radius() == 1.0);
 </div>
 
 <center>
-![cylinder](../img/cylinder3d.png)
+![cylinder](/img/cylinder3d.png)
 </center>
 
 
@@ -183,7 +183,7 @@ assert!(cone.radius() == 0.75);
 </div>
 
 <center>
-![3D cone](../img/cone3d.png)
+![3D cone](/img/cone3d.png)
 </center>
 
 -----------
@@ -216,8 +216,8 @@ assert!(capsule.radius() == 0.75);
 </div>
 
 <center>
-![2D capsule](../img/capsule2d.png)
-![3D capsule](../img/capsule3d.png)
+![2D capsule](/img/capsule2d.png)
+![3D capsule](/img/capsule3d.png)
 </center>
 
 -----------
@@ -228,7 +228,7 @@ point. Remember that an object is said to be convex if it is not self-crossing,
 and if it contains any segment joining two of its points:
 
 <center>
-![convex, concave, crossed](../img/convex_concave_crossing.svg)
+![convex, concave, crossed](/img/convex_concave_crossing.svg)
 </center>
 
 The `ConvexPolygon` (in 2D) and `ConvexHull` shape (in 3D) are created from a set of points using the `::try_from_points(points)` constructor. Note that this explicitly computes the convex hull of the input point cloud. If you already computed the convex hull on your side, you may use `::try_new(...)` instead (described later in this section).
@@ -338,8 +338,8 @@ assert!(convex.points().len() == 6);
 Keep in mind that while those constructors will fail if the topology of the convex hull is invalid, or if it contains degenerate faces, it does not check the convexity of the input. Therefore, `::try_new(...)` may succeed even if your input is not actually convex. In that case, you may experience odd results for various geometric queries.
 
 <center>
-![2D convex](../img/convex2d.png)
-![3D convex](../img/convex3d.png)
+![2D convex](/img/convex2d.png)
+![3D convex](/img/convex3d.png)
 </center>
 
 # Composite shapes
@@ -440,8 +440,8 @@ assert!(compound.shapes().len() == 3)
 
 
 <center>
-![2D compound](../img/compound2d.png)
-![3D compound](../img/compound3d.png)
+![2D compound](/img/compound2d.png)
+![3D compound](/img/compound3d.png)
 </center>
 
 -----------
@@ -503,7 +503,7 @@ assert!(polyline.vertices().len() == 5);
 </div>
 
 <center>
-![2D polyline](../img/polyline2d.png)
+![2D polyline](/img/polyline2d.png)
 </center>
 
 ## TriMesh
@@ -549,7 +549,7 @@ assert!(mesh.vertices().len() == 4);
 </div>
 
 <center>
-![3D mesh](../img/mesh3d.png)
+![3D mesh](/img/mesh3d.png)
 </center>
 # Other shapes
 Some shapes do not fall into any of the general categories described above.
@@ -647,7 +647,7 @@ suitable to be wrapped into a `ShapeHandle`. Too keep the maths simple, we will
 define a 2-dimensional ellipse centered at the origin with radii $a$ and $b$:
 
 <center>
-![crossed cuboids](../img/ellipse.svg)
+![crossed cuboids](/img/ellipse.svg)
 </center>
 
 ```rust
@@ -761,7 +761,7 @@ cross-shaped object with only two part:
 Both will be centered at the point (1, 1):
 
 <center>
-![crossed cuboids](../img/crossed_cuboids.svg)
+![crossed cuboids](/img/crossed_cuboids.svg)
 </center>
 
 Because the two parts are very simple, we will generate them on-the-fly when

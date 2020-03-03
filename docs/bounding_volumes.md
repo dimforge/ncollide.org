@@ -18,7 +18,7 @@ Aligned Bounding Box (AABB), an Oriented Bounding Box (OBB), and a convex hull.
 Not all of them are implemented on **ncollide** yet:
 
 <center>
-![bounding volumes](../img/bounding_volumes.svg)
+![bounding volumes](/img/bounding_volumes.svg)
 </center>
 
 Note that bounding volumes are very different from regular shapes: their
@@ -66,7 +66,7 @@ Bounding spheres support [ray casting](../../geometric_queries/#ray-casting) and
 [point queries](../geometric_queries/#point-projection).
 
 <center>
-![bounding sphere](../img/bounding_volume_bounding_sphere.svg)
+![bounding sphere](/img/bounding_volume_bounding_sphere.svg)
 </center>
 
 It is fully defined by its center and its radius:
@@ -81,8 +81,8 @@ Of course, the bounding sphere implements the `BoundingVolume` trait. The
 following shows the effect of the `.loosen(m)` and `.tighten(m)` methods on it:
 
 <center>
-![Bounding sphere loosening](../img/bounding_volume_bounding_sphere_loose.svg)
-![Bounding sphere tightening](../img/bounding_volume_bounding_sphere_tight.svg)
+![Bounding sphere loosening](/img/bounding_volume_bounding_sphere_loose.svg)
+![Bounding sphere tightening](/img/bounding_volume_bounding_sphere_tight.svg)
 </center>
 
 There are three ways to create a bounding sphere. The two main ones are to use
@@ -178,7 +178,7 @@ As suggested by its name, the `AABB` is a box with principal axis aligned with
 the positive coordinate axises $\mathbf{x}$, $\mathbf{y}$, $\mathbf{z}$.
 
 <center>
-![AABB](../img/bounding_volume_aabb.svg)
+![AABB](/img/bounding_volume_aabb.svg)
 </center>
 
 Its orientation being fixed at all times, it is completely defined by the
@@ -195,8 +195,8 @@ Of course, the AABB implements the `BoundingVolume` trait. The following shows
 the effect of the `.loosen(m)` and `.tighten(m)` method on it:
 
 <center>
-![AABB loosening](../img/bounding_volume_aabb_loose.svg)
-![AABB tightening](../img/bounding_volume_aabb_tight.svg)
+![AABB loosening](/img/bounding_volume_aabb_loose.svg)
+![AABB tightening](/img/bounding_volume_aabb_tight.svg)
 </center>
 
 An AABB supports [ray casting](../../geometric_queries/#ray-casting) and [point queries](../geometric_queries/#point-projection) as well.
@@ -308,7 +308,7 @@ ray-trace a complex scene with millions of triangles like this one (6,704,264
 triangles) in just a few seconds:
 
 <center>
-![rungholt](../img/rungholt.png)
+![rungholt](/img/rungholt.png)
 </center>
 
 For a high-level interface you may use a [broad
@@ -326,7 +326,7 @@ the following figure depicts a set of 2D objects (brown), their AABB (red) and
 the corresponding AABB Tree (one color per depth):
 
 <center>
-![BVT with AABB](../img/AABB_tree_BVT.svg)
+![BVT with AABB](/img/AABB_tree_BVT.svg)
 </center>
 
 Note that even if this example uses AABB, the `BVT` and `DBVT` are generic with

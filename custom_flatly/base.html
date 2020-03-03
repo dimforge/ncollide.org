@@ -65,14 +65,14 @@
                     <hr>
                     {% if previous_page.title != "Home" %}
                         <span style="float:left">
-                        <a href="{{ previous_page.url }}">
+                        <a href="{{ previous_page.url|url }}">
                             <i class="fa fa-arrow-left"></i> {{ previous_page.title }}
                         </a>
                         </span>
                     {% endif %}
                     {% if page_title != "FAQ" %}
                         <span style="float:right">
-                        <a href="{{ next_page.url }}">
+                        <a href="{{ next_page.url|url }}">
                            {{ next_page.title }} <i class="fa fa-arrow-right"></i>
                         </a>
                         </span>

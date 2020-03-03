@@ -10,10 +10,10 @@ need **nalgebra** as well because it defines algebraic entities
 
 ```toml
 [dependencies]
-nalgebra = "0.18"
+nalgebra = "0.20"
 # Choose the one you need, or both.
-ncollide2d = "0.19"
-ncollide3d = "0.19"
+ncollide2d = "0.22"
+ncollide3d = "0.22"
 ```
 
 Until **ncollide** reaches 1.0, it is strongly recommended to always use its
@@ -43,10 +43,10 @@ version = "0.0.0"
 authors = [ "You" ]
 
 [dependencies]
-approx   = "0.3.0"
-alga     = "0.7.0"
-nalgebra = "0.16.0"
-ncollide2d = "0.19"
+approx   = "0.3"
+alga     = "0.9"
+nalgebra = "0.20"
+ncollide2d = "0.22"
 
 [[bin]]
 name = "example"
@@ -61,10 +61,10 @@ version = "0.0.0"
 authors = [ "You" ]
 
 [dependencies]
-approx   = "0.3.0"
-alga     = "0.7.0"
-nalgebra = "0.18.0"
-ncollide3d = "0.19"
+approx   = "0.3"
+alga     = "0.9"
+nalgebra = "0.20"
+ncollide3d = "0.22"
 
 [[bin]]
 name = "example"

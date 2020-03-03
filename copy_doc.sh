@@ -1,7 +1,7 @@
 #! /bin/sh
 
 out_dir=./docs/rustdoc
-ncollide_dir=../rust-dev/ncollide-dev
+ncollide_dir=../ncollide
 
 echo "Generating the documentation..."
 cd $ncollide_dir; cargo doc --no-deps

@@ -24,7 +24,7 @@ point projection (or distance computation) is usually much more efficient than
 a non-solid one.
 
 <center>
-![point projection](../img/solid_point_projection.svg)
+![point projection](/img/solid_point_projection.svg)
 </center>
 
 The result of point projection is given by the `PointProjection`
@@ -166,7 +166,7 @@ undefined. A non-solid ray cast (`solid` is set to `false`) will assume that
 the shape is hollow and will propagate on its inside until it hits a border:
 
 <center>
-![solid ray cast](../img/solid_ray_cast.svg)
+![solid ray cast](/img/solid_ray_cast.svg)
 </center>
 
 Of course, if the starting point of the ray is outside of any shape, then
@@ -267,7 +267,7 @@ rectangle. The sphere being closer than the margin is equivalent to it
 intersecting the red curve:
 
 <center>
-![proximity](../img/proximity.svg)
+![proximity](/img/proximity.svg)
 </center>
 
 <ul class="nav nav-tabs">
@@ -419,7 +419,7 @@ This can be described geometrically in several forms including the penetration
 volume (left) or the minimal translational distance (right):
 
 <center>
-![penetration depth](../img/penetration_depth.svg)
+![penetration depth](/img/penetration_depth.svg)
 </center>
 
 **ncollide** implements the latter: the minimal translational distance, also
@@ -517,7 +517,7 @@ The following example depicts the three possible scenarios:
 3. The shapes will never intersect. In this case `None` is returned.
 
 <center>
-![time of impact](../img/time_of_impact.svg)
+![time of impact](/img/time_of_impact.svg)
 </center>
 
 <ul class="nav nav-tabs">

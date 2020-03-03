@@ -4,7 +4,7 @@
 <br/>
 <center>
 [![Join us on Discord](https://img.shields.io/discord/507548572338880513.svg?logo=discord&colorB=7289DA)](https://discord.gg/vt9DJSW)
-[![Travis.ci Status](https://travis-ci.org/rustsim/ncollide.svg?branch=master)](https://travis-ci.org/rustsim/ncollide)
+[![CircleCI](https://circleci.com/gh/rustsim/ncollide.svg?style=svg)](https://circleci.com/gh/circleci/circleci-docs)
 [![Crates.io Status](https://meritbadge.herokuapp.com/ncollide3d)](https://crates.io/crates/ncollide3d)
 [![License (3-Clause BSD)](https://img.shields.io/badge/license-BSD%203--Clause-blue.svg?style=flat)](https://opensource.org/licenses/BSD-3-Clause)
 
@@ -19,7 +19,7 @@
 
 <table markdown="1">
 <tr>
-    <td>[![](../img/feature_complex_shapes.svg)](../geometric_representations)</td>
+    <td>[![](/img/feature_complex_shapes.svg)](../geometric_representations)</td>
     <td style="vertical-align:middle">
     <a href="../geometric_representations" id="no_highlight">
     <div>
@@ -34,7 +34,7 @@
     </td>
 </tr>
 <tr>
-    <td>[![](../img/feature_bounding_volumes.svg)](../bounding_volumes)</td>
+    <td>[![](/img/feature_bounding_volumes.svg)](../bounding_volumes)</td>
     <td style="vertical-align:middle">
     <a href="../bounding_volumes" id="no_highlight">
     <div>
@@ -49,7 +49,7 @@
     </td>
 </tr>
 <tr>
-    <td>[![](../img/feature_ray_casting.svg)](../geometric_queries/#ray-casting)</td>
+    <td>[![](/img/feature_ray_casting.svg)](../geometric_queries/#ray-casting)</td>
     <td style="vertical-align:middle">
     <a href="../geometric_queries/#ray-casting" id="no_highlight">
     <div>
@@ -62,7 +62,7 @@
     </td>
 </tr>
 <tr>
-    <td>[![](../img/feature_point_projection.svg)](../geometric_queries/#point-projection)</td>
+    <td>[![](/img/feature_point_projection.svg)](../geometric_queries/#point-projection)</td>
     <td style="vertical-align:middle">
     <a href="../geometric_queries/#point-projection" id="no_highlight">
     <div>
@@ -76,7 +76,7 @@
     </td>
 </tr>
 <tr>
-    <td>[![](../img/feature_contact_points.svg)](../geometric_queries/#contact)</td>
+    <td>[![](/img/feature_contact_points.svg)](../geometric_queries/#contact)</td>
     <td style="vertical-align:middle">
     <a href="../geometric_queries/#contact" id="no_highlight">
     <div>
@@ -90,7 +90,7 @@
     </td>
 </tr>
 <tr>
-    <td>[![](../img/feature_time_of_impact.svg)](../geometric_queries/#time-of-impact)</td>
+    <td>[![](/img/feature_time_of_impact.svg)](../geometric_queries/#time-of-impact)</td>
     <td style="vertical-align:middle">
     <a href="../geometric_queries/#time-of-impact" id="no_highlight">
     <div>
@@ -104,7 +104,7 @@
     </td>
 </tr>
 <tr>
-    <td>[![](../img/feature_smallest_distance.svg)](../geometric_queries/#distance)</td>
+    <td>[![](/img/feature_smallest_distance.svg)](../geometric_queries/#distance)</td>
     <td style="vertical-align:middle">
     <a href="../geometric_queries/#distance" id="no_highlight">
     <div>
@@ -117,7 +117,7 @@
     </td>
 </tr>
 <tr>
-    <td>[![](../img/feature_spacial_partitioning.svg)](../bounding_volumes/#spacial-partitioning)</td>
+    <td>[![](/img/feature_spacial_partitioning.svg)](../bounding_volumes/#spacial-partitioning)</td>
     <td style="vertical-align:middle">
     <a href="../bounding_volumes/#spacial-partitioning" id="no_highlight">
     <div>
@@ -131,7 +131,7 @@
     </td>
 </tr>
 <tr>
-    <td>[![](../img/feature_collision_detection_pipeline.gif)](../collision_detection_pipeline)</td>
+    <td>[![](/img/feature_collision_detection_pipeline.gif)](../collision_detection_pipeline)</td>
     <td style="vertical-align:middle">
     <a href="../collision_detection_pipeline" id="no_highlight">
     <div>
@@ -147,7 +147,7 @@
     </td>
 </tr>
 <tr>
-    <td>[![](../img/feature_mesh_generation.png)](../mesh_generation)</td>
+    <td>[![](/img/feature_mesh_generation.png)](../mesh_generation)</td>
     <td style="vertical-align:middle">
     <a href="../mesh_generation" id="no_highlight">
     <div>

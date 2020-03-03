@@ -78,7 +78,7 @@ bounding volumes (red), the `DBVTBroadPhase` stores their loosened version
 (black):
 
 <center>
-![dbvt](../img/AABB_tree_DBVT.svg)
+![dbvt](/img/AABB_tree_DBVT.svg)
 </center>
 
 Storing the loosened bounding volumes instead of the exact ones is a
@@ -323,7 +323,7 @@ figure shows what would happen on this kind of physics simulation with a
 conforming contact approximated by only one point:
 
 <center>
-![](../img/contact.svg)
+![](/img/contact.svg)
 </center>
 
 Here, the cube is falling toward the plane. When a contact is detected, the
@@ -687,7 +687,7 @@ collision detection pipeline. A 3D version of this example is almost identical
 and may be downloaded using the button above.
 
 <center>
-![bouncing balls](../img/bouncing_ball.gif)
+![bouncing balls](/img/bouncing_ball.gif)
 </center>
 
 We first define a `CollisionObjectData` structure that will be attached to our

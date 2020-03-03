@@ -28,7 +28,7 @@ this is the required representation for renderers based on, e.g., OpenGL. In
 the following figure, each disc corresponds to one index (i.e. one integer) and
 each square to one buffer element:
 
-![Unified index buffer](../img/unified_index_buffer.svg)
+![Unified index buffer](/img/unified_index_buffer.svg)
 
 In its `SplitIndexBuffer` form, each triangle vertex as three indices: one
 for its position, one for its normal, and one for its texture coordinate. This
@@ -36,7 +36,7 @@ for its position, one for its normal, and one for its texture coordinate. This
     index buffer. In the following figure, each disc corresponds to one index
     that identifies the type of element that shares the same color:
 
-![Split index buffer](../img/split_index_buffer.svg)
+![Split index buffer](/img/split_index_buffer.svg)
 
 It is possible (but time-consuming) to switch between those two kinds of index
 buffers:
@@ -100,7 +100,7 @@ that this feature is still extremely immature and at most incomplete. Use with
 care.
 
 <center>
-![](../img/path.png)
+![](/img/path.png)
 </center>
 
 The path-based mesh generation API is based on two traits. The `CurveSampler`
@@ -234,7 +234,7 @@ let convex_hull = transformation::convex_hull(&points[..]);
 </div>
 
 <center>
-![](../img/convex_hull3d.png)
+![](/img/convex_hull3d.png)
 </center>
 
 
@@ -249,7 +249,7 @@ using the `Compound` shape. For example, one could describe the following
 object as the union of two convex parts:
 
 <center>
-![Convex decomposition](../img/concave_decomposed.svg)
+![Convex decomposition](/img/concave_decomposed.svg)
 </center>
 
 But decomposing manually a concave polyhedra into its convex parts is a very
@@ -284,14 +284,14 @@ different from the intuitive distance obtained by orthogonal projection of the
 point on the closest convex hull face):
 
 <center>
-![Concavity measure](../img/concavity.svg)
+![Concavity measure](/img/concavity.svg)
 </center>
 
 Then, to make this concavity measure kind of independent from the whole shape
 dimensions, it is divided by the object AABB diagonal $D$:
 
 <center>
-![Concavity normalizer](../img/concavity_normalizer.svg)
+![Concavity normalizer](/img/concavity_normalizer.svg)
 </center>
 
 We call the ratio $\frac{d}{D}$ the _normalized concavity_. In this example,
@@ -307,7 +307,7 @@ The following figure shows a tube (left), the result of the clustering done by
 the HACD algorithm (middle), and the resulting approximate convex decomposition
 (right):
 
-![hacd](../img/hacd.png)
+![hacd](/img/hacd.png)
 
 The following example creates a concave object using a
 [path-based](#paths) mesh generation and approximates it
