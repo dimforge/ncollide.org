@@ -386,7 +386,7 @@ A few visitors and cost functions are already implemented on **ncollide**:
 let interferences = Vec::new();
 
 {
-    let visitor = RayInterferencesCollector::new(&bv, &mut interferences);
+    let visitor = BoundingVolumeInterferencesCollector::new(&bv, &mut interferences);
     bvt.visit(&mut visitor);
 }
 
