@@ -479,9 +479,9 @@ let points = vec![
 ];
 
 // Build the polyline.
-let polyline = Polyline::new(points);
+let polyline = Polyline::new(points, None);
 
-assert!(polyline.vertices().len() == 4);
+assert!(polyline.points().len() == 4);
 ```
   </div>
   <div id="polyline_3D" class="tab-pane">
@@ -495,9 +495,9 @@ let points = vec![
 ];
 
 // Build the polyline.
-let polyline = Polyline::new(points);
+let polyline = Polyline::new(points, None);
 
-assert!(polyline.vertices().len() == 5);
+assert!(polyline.points().len() == 5);
 ```
 </div>
 </div>
